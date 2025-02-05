@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<chapter xml:id="ch-chapter-title" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Coordinates, Vectors, and Linear Combinations</title>
+
+  <introduction>
+    <p> Imagine you are standing in an unfamiliar forest and seeking a way out.  
+    You can see the sun and know the approximate time of day and know that your parked 
+    car is on the northmost edge of the forest.  How do you navigate your way toward your car?  
+    Do you need to know your exact location or do you simply need to identify a direction you 
+    need to go from your current location? </p>
+  </introduction>
+
+  <!-- include sections -->
+  <xi:include href="sec11-section-name.ptx" />
+  <xi:include href="sec12-section-name.ptx" />
+
+</chapter>
