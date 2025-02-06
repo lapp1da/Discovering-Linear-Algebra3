@@ -8,15 +8,12 @@
   by considering a case where we want to move between a pricing scheme and the revenue it 
   generates for three different companies with three different sets of orders. </p>
   <p>
-    <me>
-      A=\begin{bmatrix}
-14\amp 9\amp 34\amp 41\\
-32\amp 7\amp 12\amp 52\\
-21\amp 8\amp 5\amp 23
-\end{bmatrix}
-    </me>
-  </p>
-  <p>
+    <p>
+      Suppose that a supplier provides four different products with prices, <m>
+        p_1, p_2, p_3, p_4 </m> to three companies.  
+      
+    </p>
+     <p>
     <me>
       p_1 \begin{bmatrix}
       14\\32\\21\end{bmatrix} + p_2 \begin{bmatrix}
@@ -27,5 +24,14 @@
     </me>
     
   </p>
+    <me>
+      \begin{bmatrix}
+14\amp 9\amp 34\amp 41\\
+32\amp 7\amp 12\amp 52\\
+21\amp 8\amp 5\amp 23
+\end{bmatrix}
+    </me>
+  </p>
+ 
 
 </section>
