@@ -2,15 +2,26 @@
 
 <section xml:id="sec11-section-name" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>Modeling Data and Moving Between Worlds</title>
-
-  <p> In this section we will look at linear algebra as a way to encode information 
+<introduction>
+  <p>
+  In this section we will look at linear algebra as a way to encode information 
   and operate on it allowing us to move between different sets of information.  We begin 
   by considering a case where we want to move between a pricing scheme and the revenue it 
-  generates for three different companies with three different sets of orders. </p>
+  generates for three different companies with three different sets of orders.
+  </p>
+</introduction>
+
   <p>
     <p>
       Suppose that a supplier provides four different products with prices, <m>
-        p_1, p_2, p_3, p_4 </m> to three companies.  
+        p_1, p_2, p_3, p_4 </m> to three companies.  One thing we may want to do is to play with pricing
+        schemes and look at the generated revenue we would get from each of the three companies.  Here 
+        we will use an example where the number of parameters in each set are different, although 
+        we can have the same number of entries in each object (vector) can be the same.  In this case 
+        we will have four entries in one set of vectors (prices of different products) <m>\begin{bmatrix}
+      p_1\\p_2\\p_3\\p_4\end{bmatrix}</m> and three entries in 
+        the other set of vectors (revenue from each of the three companies) <m>\begin{bmatrix}
+      r_1\\r_2\\r_3\end{bmatrix}</m>.
       
     </p>
      <p>
