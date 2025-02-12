@@ -2,18 +2,20 @@
 
 <section xml:id="sec11-section-name" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>Modeling Data and Moving Between Worlds</title>
-<section xml:id="sec-Introduction">
-  <title>Introduction</title>
-  
-</section>
-
   <p>
   In this section we will look at linear algebra as a way to encode information 
-  and operate on it allowing us to move between different sets of information.  We begin 
-  by considering a case where we want to move between a pricing scheme and the revenue it 
-  generates for three different companies with three different sets of orders.
+  and operate on it allowing us to move between different sets of information.  To this end, we 
+  will define how matrices and vectors are operated on with binary operations like addition and 
+  multiplication.  While multiplication of matrices may seem weird, you will see that it is defined 
+  as it is for convenience in manipulating data and transforming different types of values into 
+  other computed values based on them.  We begin by considering a case where we want to move between 
+  a pricing scheme and the revenue it generates for three different companies with three different 
+  sets of orders of our products.
   </p>
-
+<section xml:id="sec-Introduction">
+  <title>Linear Combinations and Transforming Data</title>
+  
+</section>
 
     <p>
       Suppose that a supplier provides four different products with prices, <m>
@@ -21,22 +23,48 @@
         schemes and look at the generated revenue we would get from each of the three companies.  
         Suppose we have orders from the three companies for each of our four products as given in the table below.
     </p>
-      <p>
-         <me>
-      \begin{matrix}
-Clients\amp Product \ 1\amp Product \ 2\amp Product \ 3\amp Product \ 4\\
-Company \ 1\amp 14\amp 9\amp 34\amp 41\\
-Company \ 2\amp 32\amp 7\amp 12\amp 52\\
-Company \ 3\amp 21\amp 8\amp 5\amp 23
-\end{matrix}
-    </me>
+       <p>
+        <table>
+  <title>Product Orders</title>
+  <tabular halign="center">
+    <row header="yes" bottom="minor">
+      <cell>Clients</cell>
+      <cell>Product 1</cell>
+      <cell>Product 2</cell>
+      <cell>Product 3</cell>
+      <cell>Product 4</cell>
+    </row>
+    <row>
+      <cell>Company 1</cell>
+      <cell>14</cell>
+      <cell>9</cell>
+      <cell>34</cell>
+      <cell>41</cell>
+    </row>
+    <row>
+      <cell>Company 2</cell>
+      <cell>32</cell>
+      <cell>7</cell>
+      <cell>12</cell>
+      <cell>52</cell>
+    </row>
+    <row>
+      <cell>Company 3</cell>
+      <cell>21</cell>
+      <cell>8</cell>
+      <cell>5</cell>
+      <cell>23</cell>
+    </row>
+  </tabular>
+</table>
        </p>
         <p>
           Here we will use an example where the number of parameters in each set are different, although 
         we can have the same number of entries in each object (vector) can be the same.  In this case 
-        we will have four entries in one set of vectors (prices of different products) <m>\begin{bmatrix}
+        we will have four entries in one set of vectors (prices of different products) meaning that 
+        these vectors exist in <m>\mathbb{R}^4</m> such as <m>\begin{bmatrix}
       p_1\\p_2\\p_3\\p_4\end{bmatrix}</m> and three entries in 
-        the other set of vectors (revenue from each of the three companies) <m>\begin{bmatrix}
+        the other set of vectors (revenue from each of the three companies) existing in <m>\mathbb{R}^3</m> like <m>\begin{bmatrix}
       r_1\\r_2\\r_3\end{bmatrix}</m>.
         </p>
 
