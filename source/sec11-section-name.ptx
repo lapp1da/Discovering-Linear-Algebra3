@@ -5,21 +5,64 @@
   <p>
   In this section we will look at linear algebra as a way to encode information 
   and operate on it allowing us to move between different sets of information.  To this end, we 
-  will define how matrices and vectors are operated on with binary operations like addition and 
+  will define how <em>matrices</em> and <em>vectors</em> are operated on with binary operations like addition and 
   multiplication.  While multiplication of matrices may seem weird, you will see that it is defined 
   as it is for convenience in manipulating data and transforming different types of values into 
   other computed values based on them.  We begin by considering a case where we want to move between 
   a pricing scheme and the revenue it generates for three different companies with three different 
   sets of orders of our products.
   </p>
-<section xml:id="sec-Introduction">
+  <p>
+    To accomplish this, we will use constructs created to deal with objects that contain multiple entries.  
+    In the scenario we are using where companies place orders for products, we want to encode the numerical 
+    values for the orders organizing them according to the product and company placing the order.  Here 
+    just want to reduce the information to an array of values and so we define a <em>matrix</em> as an 
+    array of values (or objects) consisting of rows and columns.  We typically contain these values with 
+    brackets or parentheses like:
+    <me>
+       \begin{bmatrix}
+14\amp 9\amp 34\amp 41\\
+32\amp 7\amp 12\amp 52\\
+21\amp 8\amp 5\amp 23
+\end{bmatrix} 
+
+  \begin{pmatrix}
+14\amp 9\amp 34\amp 41\\
+32\amp 7\amp 12\amp 52\\
+21\amp 8\amp 5\amp 23
+\end{pmatrix}
+</me>
+    In the matrices above, the columns could represent the numbers of each of four products being ordered 
+    and the rows could represent the three different companies placing the orders (see the table of orders 
+    for this situation given in Table 1.1.1).
+  </p>
+  <p> 
+    We also define a <em>vector</em> as matrix with a single column such as 
+    <m>
+    \mathbf{v}=\begin{bmatrix}
+    2\\0\\-3
+    \end{bmatrix}
+    </m> 
+    or 
+    <m>
+    \mathbf{w}=\begin{bmatrix}
+    1\\7\\-1\\4
+    \end{bmatrix}
+    </m>. 
+    Note that we are using boldface to denote the names of the vectors for convenience to distinguish them from 
+    numerical objects that we call <em>scalars</em>.  In a text like this, using boldface makes sense 
+    in print, but typically, in written work, we use a harpoon over the name since boldface is not practical 
+    with a pen.  In this case, we would write the names as <m>\overset{\rightharpoonup}{v}</m> or 
+    <m>\overset{\rightharpoonup}{w}</m> respectively.
+  </p>
+<section xml:id="sec-Linear-Comb-Matrix-Mult">
   <title>Linear Combinations and Transforming Data</title>
   
 </section>
 
     <p>
-      Suppose that a supplier provides four different products with prices, <m>
-        p_1, p_2, p_3, p_4 </m>, to three companies.  One thing we may want to do is to play with pricing
+      Continuing our scenario from the introduction.  Suppose that a supplier provides four different products with 
+      prices, <m> p_1, p_2, p_3, p_4 </m>, to three companies.  One thing we may want to do is to play with pricing
         schemes and look at the generated revenue we would get from each of the three companies.  
         Suppose we have orders from the three companies for each of our four products as given in the table below.
     </p>
@@ -58,25 +101,65 @@
   </tabular>
 </table>
        </p>
-        <p>
-          Here we will use an example where the number of parameters in each set are different, although 
-        we can have the same number of entries in each object (vector) can be the same.  In this case 
-        we will have four entries in one set of vectors (prices of different products) meaning that 
-        these vectors exist in <m>\mathbb{R}^4</m> such as <m>\begin{bmatrix}
-      p_1\\p_2\\p_3\\p_4\end{bmatrix}</m> and three entries in 
-        the other set of vectors (revenue from each of the three companies) existing in <m>\mathbb{R}^3</m> like <m>\begin{bmatrix}
-      r_1\\r_2\\r_3\end{bmatrix}</m>.
-        </p>
+  <p>
+    Since there are four products, we can express the orders from the three companies for each product 
+    as an ordered triple (or vector) containing three entries (one for each company) for that product.  This 
+    would give us a set of four vectors:
 
-     <p>
     <me>
+\left\{ \begin{bmatrix}
+        14\\32\\21
+        \end{bmatrix}
+        ,\begin{bmatrix}
+        9\\7\\8
+        \end{bmatrix}
+        ,\begin{bmatrix}
+        34\\12\\5
+        \end{bmatrix}
+        ,\begin{bmatrix}
+        41\\52\\23
+        \end{bmatrix}
+\right\}
+    </me>
+  </p>
+  <p>
+    Now we can think of the selling price for each of the four products as scalars 
+     <m> p_1, p_2, p_3, p_4 </m> and compute the revenue generated by the purchases for the three 
+     companies expressing them as a three-entry revenue vector (one entry for each company) in the following way.
+     <me>
       p_1 \begin{bmatrix}
       14\\32\\21\end{bmatrix} + p_2 \begin{bmatrix}
       9\\7\\8\end{bmatrix} + p_3 \begin{bmatrix}
       34\\12\\5\end{bmatrix} + p_4 \begin{bmatrix}
       41\\52\\23\end{bmatrix} = \begin{bmatrix}
       r_1\\r_2\\r_3\end{bmatrix}
-    </me>
+     </me>
+     
+  </p>
+  <p>
+   Here we are specifically using an example where the number of entries in each set of values of interest 
+   (prices and revenue) are different to highlight that although we can have the same number of entries in 
+   each set be the same, it is not necessary.  Eventually we will express the prices as a vector consisting 
+   of four entries and the revenue as a vector consisting of three entries.  In this case we will have four 
+   entries in one set of vectors (prices of different products) meaning that these vectors exist 
+   in <m>\mathbb{R}^4</m> such as 
+   <m>
+   \begin{bmatrix}
+   p_1\\p_2\\p_3\\p_4
+   \end{bmatrix}
+   </m> 
+   and three entries in the other set of vectors (revenue from each of the three companies) existing in 
+   <m>
+   \mathbb{R}^3
+   </m> 
+   like 
+   <m>\begin{bmatrix}
+   r_1\\r_2\\r_3\end{bmatrix}
+   </m>.
+  </p>
+
+     <p>
+    
     
   </p>
   <p>
