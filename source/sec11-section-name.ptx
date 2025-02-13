@@ -167,7 +167,7 @@ respective vectors.  In other words, we get:
      
   </p>
   <p>
-   Here we are specifically using an example where the number of entries in each set of values of interest 
+   Here we are purposefully using an example where the number of entries in each set of values of interest 
    (prices and revenue) are different to highlight that although we can have the same number of entries in 
    each set be the same, it is not necessary.  Eventually we will express the prices as a vector consisting 
    of four entries and the revenue as a vector consisting of three entries.  In this case we will have four 
@@ -192,15 +192,5 @@ respective vectors.  In other words, we get:
     
     
   </p>
-  <p>
-    <me>
-      \begin{bmatrix}
-14\amp 9\amp 34\amp 41\\
-32\amp 7\amp 12\amp 52\\
-21\amp 8\amp 5\amp 23
-\end{bmatrix}
-    </me>
-  </p>
- 
-
+  
 </section>
