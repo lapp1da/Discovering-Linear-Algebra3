@@ -96,7 +96,7 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.5.5';
+eBookConfig.runestone_version = '7.5.6';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
@@ -140,7 +140,10 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-chapter contains-active">
 <div class="toc-title-box"><a href="ch-chapter-title.html" class="internal"><span class="codenumber">1</span> <span class="title">Coordinates, Vectors, and Linear Combinations</span></a></div>
 <ul class="structural toc-item-list contains-active">
-<li class="toc-item toc-section active"><div class="toc-title-box"><a href="sec11-section-name.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Modeling Data and Moving Between Worlds</span></a></div></li>
+<li class="toc-item toc-section contains-active">
+<div class="toc-title-box"><a href="sec11-section-name.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Modeling Data and Moving Between Worlds</span></a></div>
+<ul class="structural toc-item-list active"><li class="toc-item toc-section"><div class="toc-title-box"><a href="sec11-section-name.html#sec-Linear-Comb-Matrix-Mult" class="internal"><span class="codenumber">1.1.1</span> <span class="title">Linear Combinations and Transforming Data</span></a></div></li></ul>
+</li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec12-section-name.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Global vs Local Coordinates</span></a></div></li>
 </ul>
 </li>
@@ -153,17 +156,117 @@ eBookConfig.enable_chatcodes =  false;
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec11-section-name"><h2 class="heading hide-type">
 <span class="type">Section</span><span class="space"> </span><span class="codenumber">1.1</span><span class="space"> </span><span class="title">Modeling Data and Moving Between Worlds</span>
 </h2>
-<div class="para" id="sec11-section-name-2">In this section we will look at linear algebra as a way to encode information and operate on it allowing us to move between different sets of information.  We begin by considering a case where we want to move between a pricing scheme and the revenue it generates for three different companies with three different sets of orders.</div>
-<div class="para logical" id="sec11-section-name-3"><div class="displaymath process-math">
+<div class="para" id="sec11-section-name-2">In this section we will look at linear algebra as a way to encode information and operate on it allowing us to move between different sets of information.  To this end, we will define how <em class="emphasis">matrices</em> and <em class="emphasis">vectors</em> are operated on with binary operations like addition and multiplication.  While multiplication of matrices may seem weird, you will see that it is defined as it is for convenience in manipulating data and transforming different types of values into other computed values based on them.  We begin by considering a case where we want to move between a pricing scheme and the revenue it generates for three different companies with three different sets of orders of our products.</div>
+<div class="para logical" id="sec11-section-name-3">
+<div class="para">To accomplish this, we will use constructs created to deal with objects that contain multiple entries. In the scenario we are using where companies place orders for products, we want to encode the numerical values for the orders organizing them according to the product and company placing the order.  Here just want to reduce the information to an array of values and so we define a <em class="emphasis">matrix</em> as an array of values (or objects) consisting of rows and columns.  We typically contain these values with brackets or parentheses like:</div>
+<div class="displaymath process-math">
 \begin{equation*}
-A=\begin{bmatrix}
+\begin{bmatrix}
 14\amp 9\amp 34\amp 41\\
 32\amp 7\amp 12\amp 52\\
 21\amp 8\amp 5\amp 23
+\end{bmatrix} 
+\begin{pmatrix}
+14\amp 9\amp 34\amp 41\\
+32\amp 7\amp 12\amp 52\\
+21\amp 8\amp 5\amp 23
+\end{pmatrix}
+\end{equation*}
+</div>
+<div class="para">In the matrices above, the columns could represent the numbers of each of four products being ordered and the rows could represent the three different companies placing the orders (see the table of orders for this situation given in Table 1.1.1).</div>
+</div>
+<div class="para" id="sec11-section-name-4">We also define a <em class="emphasis">vector</em> as matrix with a single column such as <span class="process-math">\(\mathbf{v}=\begin{bmatrix}
+2\\0\\-3
+\end{bmatrix}\)</span> or <span class="process-math">\(\mathbf{w}=\begin{bmatrix}
+1\\7\\-1\\4
+\end{bmatrix}
+\text{.}\)</span> Note that we are using boldface to denote the names of the vectors for convenience to distinguish them from numerical objects that we call <em class="emphasis">scalars</em>.  In a text like this, using boldface makes sense in print, but typically, in written work, we use a harpoon over the name since boldface is not practical with a pen.  In this case, we would write the names as <span class="process-math">\(\overset{\rightharpoonup}{v}\)</span> or <span class="process-math">\(\overset{\rightharpoonup}{w}\)</span> respectively.</div>
+<section class="section" id="sec-Linear-Comb-Matrix-Mult"><h3 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">1.1.1</span><span class="space"> </span><span class="title">Linear Combinations and Transforming Data</span>
+</h3></section><div class="para" id="sec11-section-name-6">Continuing our scenario from the introduction.  Suppose that a supplier provides four different products with prices, <span class="process-math">\(p_1, p_2, p_3, p_4 \text{,}\)</span> to three companies.  One thing we may want to do is to play with pricing schemes and look at the generated revenue we would get from each of the three companies. Suppose we have orders from the three companies for each of our four products as given in the table below.</div>
+<div class="para" id="sec11-section-name-7"><figure class="table table-like" id="sec11-section-name-7-1"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">1.1.1<span class="period">.</span></span><span class="space"> </span>Product Orders</figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="c m b1 r0 l0 t0 lines">Clients</th>
+<th scope="col" class="c m b1 r0 l0 t0 lines">Product 1</th>
+<th scope="col" class="c m b1 r0 l0 t0 lines">Product 2</th>
+<th scope="col" class="c m b1 r0 l0 t0 lines">Product 3</th>
+<th scope="col" class="c m b1 r0 l0 t0 lines">Product 4</th>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">Company 1</td>
+<td class="c m b0 r0 l0 t0 lines">14</td>
+<td class="c m b0 r0 l0 t0 lines">9</td>
+<td class="c m b0 r0 l0 t0 lines">34</td>
+<td class="c m b0 r0 l0 t0 lines">41</td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">Company 2</td>
+<td class="c m b0 r0 l0 t0 lines">32</td>
+<td class="c m b0 r0 l0 t0 lines">7</td>
+<td class="c m b0 r0 l0 t0 lines">12</td>
+<td class="c m b0 r0 l0 t0 lines">52</td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">Company 3</td>
+<td class="c m b0 r0 l0 t0 lines">21</td>
+<td class="c m b0 r0 l0 t0 lines">8</td>
+<td class="c m b0 r0 l0 t0 lines">5</td>
+<td class="c m b0 r0 l0 t0 lines">23</td>
+</tr>
+</table></div></figure></div>
+<div class="para logical" id="sec11-section-name-8">
+<div class="para">Since there are four products, we can express the orders from the three companies for each product as an ordered triple (or vector) containing three entries (one for each company) for that product.  This would give us a set of four vectors:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\left\{ \begin{bmatrix}
+14\\32\\21
+\end{bmatrix}
+,\begin{bmatrix}
+9\\7\\8
+\end{bmatrix}
+,\begin{bmatrix}
+34\\12\\5
+\end{bmatrix}
+,\begin{bmatrix}
+41\\52\\23
+\end{bmatrix}
+\right\}
+\end{equation*}
+</div>
+</div>
+<div class="para logical" id="sec11-section-name-9">
+<div class="para">If we use these vectors to represent the number of orders placed by each of the three companies for each of the four products, we can compute the total revenue as long as we know the price of each product. Let’s suppose that Product 1 is priced at $12, Product 2 is priced at $9, Product 3 is priced at $15, and Product 4 is priced at $7.  We can represent this computation as:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+12\cdot \begin{bmatrix}
+14\\32\\21\end{bmatrix} + 9\cdot \begin{bmatrix}
+9\\7\\8\end{bmatrix} + 15\cdot \begin{bmatrix}
+34\\12\\5\end{bmatrix} + 7\cdot \begin{bmatrix}
+41\\52\\23\end{bmatrix}
+\end{equation*}
+</div>
+<div class="para">Where the product means that the scalar values (12, 9, 15, and 7) are multipled by all entries in their respective vectors.  In other words, we get:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{bmatrix}
+12\cdot14 \\12\cdot32 \\12\cdot21 \end{bmatrix} + \begin{bmatrix}
+9\cdot9 \\9\cdot7 \\9\cdot8 \end{bmatrix} + \begin{bmatrix}
+15\cdot34 \\15\cdot12 \\15\cdot5 \end{bmatrix} + \begin{bmatrix}
+7\cdot41 \\7\cdot52 \\7\cdot23 \end{bmatrix} = 
+\begin{bmatrix}
+12\cdot14 + 9\cdot9 + 15\cdot34 + 7\cdot41 \\
+12\cdot32 + 9\cdot7 + 15\cdot12 + 7\cdot52 \\
+12\cdot21 + 9\cdot8 + 15\cdot5 + 7\cdot23
+\end{bmatrix} = 
+\begin{bmatrix}
+1046\\991\\560
 \end{bmatrix}
 \end{equation*}
-</div></div>
-<div class="para logical" id="sec11-section-name-4"><div class="displaymath process-math">
+</div>
+</div>
+<div class="para logical" id="sec11-section-name-10">
+<div class="para">In general, we can think of the selling price for each of the four products as scalars <span class="process-math">\(p_1, p_2, p_3, p_4 \)</span> and compute the revenue generated by the purchases for the three companies expressing them as a three-entry revenue vector (one entry for each company) in the following way.</div>
+<div class="displaymath process-math">
 \begin{equation*}
 p_1 \begin{bmatrix}
 14\\32\\21\end{bmatrix} + p_2 \begin{bmatrix}
@@ -171,6 +274,23 @@ p_1 \begin{bmatrix}
 34\\12\\5\end{bmatrix} + p_4 \begin{bmatrix}
 41\\52\\23\end{bmatrix} = \begin{bmatrix}
 r_1\\r_2\\r_3\end{bmatrix}
+\end{equation*}
+</div>
+</div>
+<div class="para" id="sec11-section-name-11">Here we are specifically using an example where the number of entries in each set of values of interest (prices and revenue) are different to highlight that although we can have the same number of entries in each set be the same, it is not necessary.  Eventually we will express the prices as a vector consisting of four entries and the revenue as a vector consisting of three entries.  In this case we will have four entries in one set of vectors (prices of different products) meaning that these vectors exist in <span class="process-math">\(\mathbb{R}^4\)</span> such as <span class="process-math">\(\begin{bmatrix}
+p_1\\p_2\\p_3\\p_4
+\end{bmatrix}\)</span> and three entries in the other set of vectors (revenue from each of the three companies) existing in <span class="process-math">\(\mathbb{R}^3\)</span> like <span class="process-math">\(\begin{bmatrix}
+r_1\\r_2\\r_3\end{bmatrix}
+\text{.}\)</span>
+</div>
+<div class="para" id="sec11-section-name-12"></div>
+<div class="para logical" id="sec11-section-name-13"><div class="displaymath process-math">
+\begin{equation*}
+\begin{bmatrix}
+14\amp 9\amp 34\amp 41\\
+32\amp 7\amp 12\amp 52\\
+21\amp 8\amp 5\amp 23
+\end{bmatrix}
 \end{equation*}
 </div></div></section></div>
 <div class="ptx-content-footer">
