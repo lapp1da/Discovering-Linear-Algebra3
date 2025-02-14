@@ -133,7 +133,7 @@
     cv_n
     \end{bmatrix}
     </me>
-    
+    where <m>c\in \mathbb{R}</m>.
   </p>
 <section xml:id="sec-Linear-Comb-Matrix-Mult">
   <title>Linear Combinations and Transforming Data</title>
