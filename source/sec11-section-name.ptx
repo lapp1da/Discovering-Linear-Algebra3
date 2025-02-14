@@ -6,7 +6,7 @@
   In this section we will look at linear algebra as a way to encode information 
   and operate on it allowing us to move between different sets of information.  To this end, we 
   will define how <em>matrices</em> and <em>vectors</em> are operated on with binary operations like addition and 
-  multiplication.  While multiplication of matrices may seem weird, you will see that it is defined 
+  multiplication.  While multiplication of matrices may seem weird at first, you will see that it is defined 
   as it is for convenience in manipulating data and transforming different types of values into 
   other computed values based on them.  We begin by considering a case where we want to move between 
   a pricing scheme and the revenue it generates for three different companies with three different 
@@ -25,7 +25,7 @@
 32\amp 7\amp 12\amp 52\\
 21\amp 8\amp 5\amp 23
 \end{bmatrix} 
-
+\text{or}
   \begin{pmatrix}
 14\amp 9\amp 34\amp 41\\
 32\amp 7\amp 12\amp 52\\
@@ -54,6 +54,86 @@
     in print, but typically, in written work, we use a harpoon over the name since boldface is not practical 
     with a pen.  In this case, we would write the names as <m>\overset{\rightharpoonup}{v}</m> or 
     <m>\overset{\rightharpoonup}{w}</m> respectively.
+  </p>
+  <p>
+    You may have encountered vectors before in geometry or physics.  We will go into greater detail later with 
+    respect to the geometric interpretation, but for now, the behavior remains the same in that operations 
+    still work as they do in geometry and physics.  Essentially, vectors consist of <em>components</em> 
+    so that when the vectors are added, we simply add the components.
+    <me>
+      \mathbf{v}+\mathbf{u} = 
+      \begin{bmatrix}
+      v_1\\
+      v_2\\
+      \vdots\\
+      v_n
+      \end{bmatrix} +
+      \begin{bmatrix}
+      u_1\\
+      u_2\\
+      \vdots\\
+      u_n
+      \end{bmatrix} =
+      \begin{bmatrix}
+      v_1+u_1\\
+      v_2+u_2\\
+      \vdots\\
+      v_n+u_n
+      \end{bmatrix}
+    </me>
+    For example, suppose we have the two vectors in <m>\mathbb{R}^3</m>,  
+    <m>
+    \begin{bmatrix}
+    1\\-5\\2
+    \end{bmatrix}
+    \text{and}
+    \begin{bmatrix}
+    2\\1\\7
+    \end{bmatrix}
+    </m>.  Adding these would result in 
+    <m>
+       \begin{bmatrix}
+    1\\-5\\2
+    \end{bmatrix} +
+    \begin{bmatrix}
+    2\\1\\7
+    \end{bmatrix} =
+    \begin{bmatrix}
+    3\\-4\\9
+    \end{bmatrix}
+    </m>.
+  </p>
+  <p>
+    The other basic operation we can do with vectors is to <em>scale</em> them (geometrically make them longer 
+    or shorter or in the case of negative values, make them go in the opposite direction).  For this reason, 
+    when we multiply the vector by a numerical value, we call that value a <em>scalar</em>.  For example, 
+    <me>
+    2\cdot \begin{bmatrix}
+    -1\\3\\5
+    \end{bmatrix} =
+    \begin{bmatrix}
+    -2\\6\\10
+    \end{bmatrix}
+    </me>
+    In essence, we scaled the vector by a factor of 2.
+  </p>
+  <p>
+    In general, we can define scalar multiplication of a vector as 
+    <me>
+    c\mathbf{v} =  c\cdot \begin{bmatrix}
+    v_1\\
+    v_2\\
+    \vdots\\
+    v_n
+    \end{bmatrix} =
+    \begin{bmatrix}
+    cv_1\\
+    cv_2\\
+    \vdots\\
+    cv_n
+    \end{bmatrix}
+    </me>
+    
   </p>
 <section xml:id="sec-Linear-Comb-Matrix-Mult">
   <title>Linear Combinations and Transforming Data</title>
