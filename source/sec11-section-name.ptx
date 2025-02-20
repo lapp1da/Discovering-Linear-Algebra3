@@ -135,6 +135,32 @@
     </me>
     where <m>c\in \mathbb{R}</m>.
   </p>
+  <p>
+Combining scalar multiplication with vector addition, we get
+<me>
+      c_1\cdot \mathbf{v}+c_2\cdot \mathbf{u} = 
+      c_1\cdot \begin{bmatrix}
+      v_1\\
+      v_2\\
+      \vdots\\
+      v_n
+      \end{bmatrix} +
+      c_2\cdot \begin{bmatrix}
+      u_1\\
+      u_2\\
+      \vdots\\
+      u_n
+      \end{bmatrix} =
+      \begin{bmatrix}
+      c_1 v_1+c_2 u_1\\
+      c_1 v_2+c_2 u_2\\
+      \vdots\\
+      c_1 v_n+c_2 u_n
+      \end{bmatrix}
+    </me>
+    We can use these <em>linear combinations</em> applying them to our previous scenario for moving 
+    between price of materials and the revenue they generate.
+  </p>  
 <section xml:id="sec-Linear-Comb-Matrix-Mult">
   <title>Linear Combinations and Transforming Data</title>
   
