@@ -96,15 +96,15 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.5.6';
+eBookConfig.runestone_version = '7.5.9';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.82032a8574f6ce75.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.f6bda0c0ccce4835.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
-<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.6a985cbf816db5c7.css">
+<script src="_static/prefix-runtime.d7db380f34a0a67e.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.f6bda0c0ccce4835.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.e0c6d4592e23c667.css">
 <style>
 </style>
 </head>
@@ -156,7 +156,7 @@ eBookConfig.enable_chatcodes =  false;
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec11-section-name"><h2 class="heading hide-type">
 <span class="type">Section</span><span class="space"> </span><span class="codenumber">1.1</span><span class="space"> </span><span class="title">Modeling Data and Moving Between Worlds</span>
 </h2>
-<div class="para" id="sec11-section-name-2">In this section we will look at linear algebra as a way to encode information and operate on it allowing us to move between different sets of information.  To this end, we will define how <em class="emphasis">matrices</em> and <em class="emphasis">vectors</em> are operated on with binary operations like addition and multiplication.  While multiplication of matrices may seem weird, you will see that it is defined as it is for convenience in manipulating data and transforming different types of values into other computed values based on them.  We begin by considering a case where we want to move between a pricing scheme and the revenue it generates for three different companies with three different sets of orders of our products.</div>
+<div class="para" id="sec11-section-name-2">In this section we will look at linear algebra as a way to encode information and operate on it allowing us to move between different sets of information.  To this end, we will define how <em class="emphasis">matrices</em> and <em class="emphasis">vectors</em> are operated on with binary operations like addition and multiplication.  While multiplication of matrices may seem weird at first, you will see that it is defined as it is for convenience in manipulating data and transforming different types of values into other computed values based on them.  We begin by considering a case where we want to move between a pricing scheme and the revenue it generates for three different companies with three different sets of orders of our products.</div>
 <div class="para logical" id="sec11-section-name-3">
 <div class="para">To accomplish this, we will use constructs created to deal with objects that contain multiple entries. In the scenario we are using where companies place orders for products, we want to encode the numerical values for the orders organizing them according to the product and company placing the order.  Here just want to reduce the information to an array of values and so we define a <em class="emphasis">matrix</em> as an array of values (or objects) consisting of rows and columns.  We typically contain these values with brackets or parentheses like:</div>
 <div class="displaymath process-math">
@@ -166,6 +166,7 @@ eBookConfig.enable_chatcodes =  false;
 32\amp 7\amp 12\amp 52\\
 21\amp 8\amp 5\amp 23
 \end{bmatrix} 
+\text{or}
 \begin{pmatrix}
 14\amp 9\amp 34\amp 41\\
 32\amp 7\amp 12\amp 52\\
@@ -181,10 +182,116 @@ eBookConfig.enable_chatcodes =  false;
 1\\7\\-1\\4
 \end{bmatrix}
 \text{.}\)</span> Note that we are using boldface to denote the names of the vectors for convenience to distinguish them from numerical objects that we call <em class="emphasis">scalars</em>.  In a text like this, using boldface makes sense in print, but typically, in written work, we use a harpoon over the name since boldface is not practical with a pen.  In this case, we would write the names as <span class="process-math">\(\overset{\rightharpoonup}{v}\)</span> or <span class="process-math">\(\overset{\rightharpoonup}{w}\)</span> respectively.</div>
+<div class="para logical" id="sec11-section-name-5">
+<div class="para">You may have encountered vectors before in geometry or physics.  We will go into greater detail later with respect to the geometric interpretation, but for now, the behavior remains the same in that operations still work as they do in geometry and physics.  Essentially, vectors consist of <em class="emphasis">components</em> so that when the vectors are added, we simply add the components.</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mathbf{v}+\mathbf{u} = 
+\begin{bmatrix}
+v_1\\
+v_2\\
+\vdots\\
+v_n
+\end{bmatrix} +
+\begin{bmatrix}
+u_1\\
+u_2\\
+\vdots\\
+u_n
+\end{bmatrix} =
+\begin{bmatrix}
+v_1+u_1\\
+v_2+u_2\\
+\vdots\\
+v_n+u_n
+\end{bmatrix}
+\end{equation*}
+</div>
+<div class="para">For example, suppose we have the two vectors in <span class="process-math">\(\mathbb{R}^3\text{,}\)</span> <span class="process-math">\(\begin{bmatrix}
+1\\-5\\2
+\end{bmatrix}
+\text{and}
+\begin{bmatrix}
+2\\1\\7
+\end{bmatrix}
+\text{.}\)</span>  Adding these would result in <span class="process-math">\(\begin{bmatrix}
+1\\-5\\2
+\end{bmatrix} +
+\begin{bmatrix}
+2\\1\\7
+\end{bmatrix} =
+\begin{bmatrix}
+3\\-4\\9
+\end{bmatrix}
+\text{.}\)</span>
+</div>
+</div>
+<div class="para logical" id="sec11-section-name-6">
+<div class="para">The other basic operation we can do with vectors is to <em class="emphasis">scale</em> them (geometrically make them longer or shorter or in the case of negative values, make them go in the opposite direction).  For this reason, when we multiply the vector by a numerical value, we call that value a <em class="emphasis">scalar</em>.  For example,</div>
+<div class="displaymath process-math">
+\begin{equation*}
+2\cdot \begin{bmatrix}
+-1\\3\\5
+\end{bmatrix} =
+\begin{bmatrix}
+-2\\6\\10
+\end{bmatrix}
+\end{equation*}
+</div>
+<div class="para">In essence, we scaled the vector by a factor of 2.</div>
+</div>
+<div class="para logical" id="sec11-section-name-7">
+<div class="para">In general, we can define scalar multiplication of a vector as</div>
+<div class="displaymath process-math">
+\begin{equation*}
+c\mathbf{v} =  c\cdot \begin{bmatrix}
+v_1\\
+v_2\\
+\vdots\\
+v_n
+\end{bmatrix} =
+\begin{bmatrix}
+cv_1\\
+cv_2\\
+\vdots\\
+cv_n
+\end{bmatrix}
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(c\in \mathbb{R}\text{.}\)</span>
+</div>
+</div>
+<div class="para logical" id="sec11-section-name-8">
+<div class="para">Combining scalar multiplication with vector addition, we get</div>
+<div class="displaymath process-math">
+\begin{equation*}
+c_1\cdot \mathbf{v}+c_2\cdot \mathbf{u} = 
+c_1\cdot \begin{bmatrix}
+v_1\\
+v_2\\
+\vdots\\
+v_n
+\end{bmatrix} +
+c_2\cdot \begin{bmatrix}
+u_1\\
+u_2\\
+\vdots\\
+u_n
+\end{bmatrix} =
+\begin{bmatrix}
+c_1 v_1+c_2 u_1\\
+c_1 v_2+c_2 u_2\\
+\vdots\\
+c_1 v_n+c_2 u_n
+\end{bmatrix}
+\end{equation*}
+</div>
+<div class="para">We can use these <em class="emphasis">linear combinations</em> applying them to our previous scenario for moving between price of materials and the revenue they generate.</div>
+</div>
 <section class="section" id="sec-Linear-Comb-Matrix-Mult"><h3 class="heading hide-type">
 <span class="type">Section</span><span class="space"> </span><span class="codenumber">1.1.1</span><span class="space"> </span><span class="title">Linear Combinations and Transforming Data</span>
-</h3></section><div class="para" id="sec11-section-name-6">Continuing our scenario from the introduction.  Suppose that a supplier provides four different products with prices, <span class="process-math">\(p_1, p_2, p_3, p_4 \text{,}\)</span> to three companies.  One thing we may want to do is to play with pricing schemes and look at the generated revenue we would get from each of the three companies. Suppose we have orders from the three companies for each of our four products as given in the table below.</div>
-<div class="para" id="sec11-section-name-7"><figure class="table table-like" id="sec11-section-name-7-1"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">1.1.1<span class="period">.</span></span><span class="space"> </span>Product Orders</figcaption><div class="tabular-box natural-width"><table class="tabular">
+</h3></section><div class="para" id="sec11-section-name-10">Continuing our scenario from the introduction.  Suppose that a supplier provides four different products with prices, <span class="process-math">\(p_1, p_2, p_3, p_4 \text{,}\)</span> to three companies.  One thing we may want to do is to play with pricing schemes and look at the generated revenue we would get from each of the three companies. Suppose we have orders from the three companies for each of our four products as given in the table below.</div>
+<div class="para" id="sec11-section-name-11"><figure class="table table-like" id="sec11-section-name-11-1"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">1.1.1<span class="period">.</span></span><span class="space"> </span>Product Orders</figcaption><div class="tabular-box natural-width"><table class="tabular">
 <tr class="header-horizontal">
 <th scope="col" class="c m b1 r0 l0 t0 lines">Clients</th>
 <th scope="col" class="c m b1 r0 l0 t0 lines">Product 1</th>
@@ -214,7 +321,7 @@ eBookConfig.enable_chatcodes =  false;
 <td class="c m b0 r0 l0 t0 lines">23</td>
 </tr>
 </table></div></figure></div>
-<div class="para logical" id="sec11-section-name-8">
+<div class="para logical" id="sec11-section-name-12">
 <div class="para">Since there are four products, we can express the orders from the three companies for each product as an ordered triple (or vector) containing three entries (one for each company) for that product.  This would give us a set of four vectors:</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -234,7 +341,7 @@ eBookConfig.enable_chatcodes =  false;
 \end{equation*}
 </div>
 </div>
-<div class="para logical" id="sec11-section-name-9">
+<div class="para logical" id="sec11-section-name-13">
 <div class="para">If we use these vectors to represent the number of orders placed by each of the three companies for each of the four products, we can compute the total revenue as long as we know the price of each product. Let’s suppose that Product 1 is priced at $12, Product 2 is priced at $9, Product 3 is priced at $15, and Product 4 is priced at $7.  We can represent this computation as:</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -264,7 +371,7 @@ eBookConfig.enable_chatcodes =  false;
 \end{equation*}
 </div>
 </div>
-<div class="para logical" id="sec11-section-name-10">
+<div class="para logical" id="sec11-section-name-14">
 <div class="para">In general, we can think of the selling price for each of the four products as scalars <span class="process-math">\(p_1, p_2, p_3, p_4 \)</span> and compute the revenue generated by the purchases for the three companies expressing them as a three-entry revenue vector (one entry for each company) in the following way.</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -277,22 +384,13 @@ r_1\\r_2\\r_3\end{bmatrix}
 \end{equation*}
 </div>
 </div>
-<div class="para" id="sec11-section-name-11">Here we are specifically using an example where the number of entries in each set of values of interest (prices and revenue) are different to highlight that although we can have the same number of entries in each set be the same, it is not necessary.  Eventually we will express the prices as a vector consisting of four entries and the revenue as a vector consisting of three entries.  In this case we will have four entries in one set of vectors (prices of different products) meaning that these vectors exist in <span class="process-math">\(\mathbb{R}^4\)</span> such as <span class="process-math">\(\begin{bmatrix}
+<div class="para" id="sec11-section-name-15">Here we are purposefully using an example where the number of entries in each set of values of interest (prices and revenue) are different to highlight that although we can have the same number of entries in each set be the same, it is not necessary.  Eventually we will express the prices as a vector consisting of four entries and the revenue as a vector consisting of three entries.  In this case we will have four entries in one set of vectors (prices of different products) meaning that these vectors exist in <span class="process-math">\(\mathbb{R}^4\)</span> such as <span class="process-math">\(\begin{bmatrix}
 p_1\\p_2\\p_3\\p_4
 \end{bmatrix}\)</span> and three entries in the other set of vectors (revenue from each of the three companies) existing in <span class="process-math">\(\mathbb{R}^3\)</span> like <span class="process-math">\(\begin{bmatrix}
 r_1\\r_2\\r_3\end{bmatrix}
 \text{.}\)</span>
 </div>
-<div class="para" id="sec11-section-name-12"></div>
-<div class="para logical" id="sec11-section-name-13"><div class="displaymath process-math">
-\begin{equation*}
-\begin{bmatrix}
-14\amp 9\amp 34\amp 41\\
-32\amp 7\amp 12\amp 52\\
-21\amp 8\amp 5\amp 23
-\end{bmatrix}
-\end{equation*}
-</div></div></section></div>
+<div class="para" id="sec11-section-name-16"></div></section></div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="ch-chapter-title.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec12-section-name.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
