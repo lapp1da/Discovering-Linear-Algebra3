@@ -161,10 +161,9 @@ Combining scalar multiplication with vector addition, we get
     We can use these <em>linear combinations</em> applying them to our previous scenario for moving 
     between price of materials and the revenue they generate.
   </p>  
-<section xml:id="sec-Linear-Comb-Matrix-Mult">
-  <title>Linear Combinations and Transforming Data</title>
-  
-</section>
+<section xml:id="sec-Linear-Comb-Data">
+  <title>Linear Combinations and Dealing with Data</title>
+
 
     <p>
       Continuing our scenario from the introduction.  Suppose that a supplier provides four different products with 
@@ -240,8 +239,10 @@ Product 4 is priced at $7.  We can represent this computation as:
       34\\12\\5\end{bmatrix} + 7\cdot \begin{bmatrix}
       41\\52\\23\end{bmatrix}
 </me>
-Where the product means that the scalar values (12, 9, 15, and 7) are multipled by all entries in their 
-respective vectors.  In other words, we get:
+Where the product means that the scalar values or prices of each product (12, 9, 15, and 7) are multipled 
+by all entries in their respective vectors (number of orders of each product placed in order by company).  
+When these vectors are then added, we get the total revenue for each company organized as an ordered 
+triple here since there are three companies.
 <me>
  \begin{bmatrix}
       12\cdot14 \\12\cdot32 \\12\cdot21 \end{bmatrix} + \begin{bmatrix}
@@ -298,5 +299,165 @@ respective vectors.  In other words, we get:
     
     
   </p>
-  
+  </section>
+<section xml:id="sec-Transform-Data-Matrix-Mult">
+  <title>Transforming Data and Matrix Multiplication</title>
+  <p>
+    As we have seen, we can use vectors to represent any entity that might have components.  This allows 
+    us to manipulate values of common components by adding or multiplying them while keeping the 
+    components separated in the process.  This use of linear combinations of vectors is useful, but the 
+    real desire of the previous scenario is to examine how manipulating one set of values (say, prices of 
+    products) affects another set of values (revenue for each company).  Just as we explored functional 
+    relationships in algebra and calculus, we also might want to explore functional relationships with 
+    objects that have not just one value as an input and one corresponding value as an output, but rather 
+    inputs that have many component values and a corresponding output that also has many component values.
+  </p>
+  <p>
+    Recall that one of our first experiences with functions dealt with simple linear relationships.  For 
+    example, Hooke's Law states that there is a simple linear relationship between force on a stretched 
+    or compressed spring and the distance of the associated stretch or compression, <m>F=kx</m>, where <m>k</m> 
+    is a constant of proportionality.  If we use <em>function notation</em> to express that force, 
+    <m>F</m>, is a function of stretch, <m>x</m>, we indicate the independent variable by placing it in 
+    parentheses getting, <m>F\left(x\right)=kx</m>.
+  </p>
+  <p>
+    In this situation, we obtain the force as an output by multiplying the stretch, <m>x</m>, by a numerical 
+    value, <m>k</m>.  What if in our scenario for the relationship between pricing of products and the 
+    revenue generated from each of our three companies, we could have a simple multiplication by something 
+    that acted like <m>k</m> in our Hooke's Law relationship?  In the <m>F\left(x\right)=kx</m> case, there 
+    is a single value, <m>k</m>, that affects the output, <m>F</m>, for a given input, <m>x</m>.  However, 
+    in the situation with price vs revenue, there are many values impacting the output of revenue for an 
+    input vector of prices (namely, all of the different order values provided by the companies placing 
+    orders).  So, our <em>k</em>-equivalent must take into account all of the values of the orders placed 
+    by the companies.  Here we can think of our single multiplier (like that of <m>k</m>) as being 
+    comprised of an array of order values for the products like we had for the linear combination of the vectors 
+     <me>
+\left\{ \begin{bmatrix}
+        14\\32\\21
+        \end{bmatrix}
+        ,\begin{bmatrix}
+        9\\7\\8
+        \end{bmatrix}
+        ,\begin{bmatrix}
+        34\\12\\5
+        \end{bmatrix}
+        ,\begin{bmatrix}
+        41\\52\\23
+        \end{bmatrix}
+\right\}
+    </me>
+    except now we express this set of vectors as a single matrix where each column is a vector (called a 
+    <em>column vector</em>).  This gives an entity (matrix) 
+    <me>
+       \begin{bmatrix}
+14\amp 9\amp 34\amp 41\\
+32\amp 7\amp 12\amp 52\\
+21\amp 8\amp 5\amp 23
+\end{bmatrix}
+    </me>
+    that serves the role that <m>k</m> did in <m>F=kx</m>.
+
+  </p>
+  <p>
+    What this does for us is it allows us to think of the scalars (prices) we used in the linear combination, 
+    <me>
+      p_1 \begin{bmatrix}
+      14\\32\\21\end{bmatrix} + p_2 \begin{bmatrix}
+      9\\7\\8\end{bmatrix} + p_3 \begin{bmatrix}
+      34\\12\\5\end{bmatrix} + p_4 \begin{bmatrix}
+      41\\52\\23\end{bmatrix} = \begin{bmatrix}
+      r_1\\r_2\\r_3\end{bmatrix}
+     </me>
+     as an input vector, 
+     <m>
+   \begin{bmatrix}
+   p_1\\p_2\\p_3\\p_4
+   \end{bmatrix}
+    </m>,
+    so that we get a relationship that is structurally similar to <m>F=kx</m>:
+    <me>\begin{bmatrix}
+   r_1\\r_2\\r_3\end{bmatrix} =
+    \begin{bmatrix}
+14\amp 9\amp 34\amp 41\\
+32\amp 7\amp 12\amp 52\\
+21\amp 8\amp 5\amp 23
+\end{bmatrix}
+
+\begin{bmatrix}
+   p_1\\p_2\\p_3\\p_4
+   \end{bmatrix}
+   </me>
+   where <m>\begin{bmatrix}
+   r_1\\r_2\\r_3\end{bmatrix} </m> acts like <m>F</m>, <m>\begin{bmatrix}
+   p_1\\p_2\\p_3\\p_4
+   \end{bmatrix}</m> acts like <m>x</m>, and <m>\begin{bmatrix}
+14\amp 9\amp 34\amp 41\\
+32\amp 7\amp 12\amp 52\\
+21\amp 8\amp 5\amp 23
+\end{bmatrix}</m> acts like <m>k</m>.
+  </p>
+  <p>
+    The use of a matrix as a single entity that we can use to multiply by a vector brings an interesting 
+    question.  What does it mean to multiply by a matrix.  If we look at what we want to do from our 
+    functional perspective in the case above, we would like to have the outputs represent the revenue 
+    in the way we ultimately added them up in the linear combination of the vectors with the prices 
+    viewed as scalars for the column vectors in the matrix.  This means that we will need to define the 
+    multiplication of a matrix and a vector in such a way that we get:
+    <me>
+    \begin{bmatrix}
+14\amp 9\amp 34\amp 41\\
+32\amp 7\amp 12\amp 52\\
+21\amp 8\amp 5\amp 23
+\end{bmatrix}
+
+\begin{bmatrix}
+   p_1\\p_2\\p_3\\p_4
+   \end{bmatrix} = 
+
+   \begin{bmatrix}
+      p_1\cdot14 + p_2\cdot9 + p_3\cdot34 + p_4\cdot41 \\
+      p_1\cdot32 + p_2\cdot7 + p_3\cdot12 + p_4\cdot52 \\
+      p_1\cdot21 + p_2\cdot8 + p_3\cdot5 + p_4\cdot23
+      \end{bmatrix}
+    </me>
+    Now this may seem complicated, but one way to look at the process is that we proceed across a row in 
+    the matrix while moving down the vector component by component adding the products of the row entries 
+    of the matrix and the corresponding component entries of the vector.  For example, for the top entry 
+    in the resulting revenue vector, we obtained it by moving across the first row with values 14, 9, 34, 
+    and 41, while multiplying each by their respective position price value <m>p_1</m>, <m>p_2</m>, <m>p_3</m>, 
+    and <m>p_4</m> and then adding these four products together.  This gives <m>
+    p_1\cdot14 + p_2\cdot9 + p_3\cdot34 + p_4\cdot41</m>.  Now we proceed similarly for each row moving across 
+    the row and down the vector creating product combinations and adding them together as we go.  The row 
+    of the matrix we use for the computation becomes the row position in the resulting vector we are 
+    creating (in this case, revenue).
+    <me>
+    \begin{bmatrix}
+14\amp 9\amp 34\amp 41\\
+32\amp 7\amp 12\amp 52\\
+21\amp 8\amp 5\amp 23
+\end{bmatrix}
+
+\begin{bmatrix}
+   p_1\\p_2\\p_3\\p_4
+   \end{bmatrix} = 
+
+   \begin{bmatrix}
+      p_1\cdot14 + p_2\cdot9 + p_3\cdot34 + p_4\cdot41 \\
+      p_1\cdot32 + p_2\cdot7 + p_3\cdot12 + p_4\cdot52 \\
+      p_1\cdot21 + p_2\cdot8 + p_3\cdot5 + p_4\cdot23
+      \end{bmatrix} = 
+      \begin{bmatrix}
+      r_1\\r_2\\r_3\end{bmatrix}
+    </me>
+    You will likely notice that the result of the way we have chosen to define the multiplication of a 
+    matrix and a vector only makes sense if the number of columns of the matrix matches the number of 
+    entries (rows of components) of the vector.
+  </p>
+</section>
+<section xml:id="sec-Transformations-Vectors">
+  <title>Transformations of Vectors</title>
+  <p>
+    
+  </p>
+</section>
 </section>
