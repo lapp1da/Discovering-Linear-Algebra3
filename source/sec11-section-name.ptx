@@ -457,7 +457,35 @@ triple here since there are three companies.
 <section xml:id="sec-Transformations-Vectors">
   <title>Transformations of Vectors</title>
   <p>
-    
+    Now that we have defined what it means to multiply a matrix and a vector, we can go back to the concept 
+    that motivated it, namely, the desire to move between an input vector and an output vector.  In a way, 
+    we are looking to <em>transform</em> one type of vector into another type of vector.  Just as the 
+    relationship of Hooke's Law can be thought of as transforming <em>stretch</em> into <em>force</em>, 
+    in our scenario between pricing structures and the revenue generated, we are similarly looking to transform a 
+    pricing scheme into the resulting revenue for our three companies.  We can even use function notation to 
+    represent this relationship.  If we let the vector <m>\mathbf{p}=\begin{bmatrix}
+   p_1\\p_2\\p_3\\p_4 \end{bmatrix}</m>, we can think of the product of the matrix of orders by the companies 
+   and the vector <m>\mathbf{p}</m> as a revenue transformation (or function), <m>R</m>, given by  
+   <me>
+    R\left(\mathbf{p}\right)=
+    \begin{bmatrix}
+    14\amp 9\amp 34\amp 41\\
+    32\amp 7\amp 12\amp 52\\
+    21\amp 8\amp 5\amp 23
+    \end{bmatrix}
+    \mathbf{p} = 
+    \begin{bmatrix}
+    14\amp 9\amp 34\amp 41\\
+    32\amp 7\amp 12\amp 52\\
+    21\amp 8\amp 5\amp 23
+    \end{bmatrix}
+    \begin{bmatrix}
+    p_1\\p_2\\p_3\\p_4
+    \end{bmatrix}
+   </me>
+   This is effectively a mapping between vectors in <m>\mathbb{R}^4</m> and vectors in <m>\mathbb{R}^3</m>.  
+   We can represent this mapping as <m>R:\mathbb{R}^4 \rightarrow \mathbb{R}^3</m>.
+
   </p>
 </section>
 </section>
