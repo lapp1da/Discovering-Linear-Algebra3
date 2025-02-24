@@ -142,7 +142,11 @@ eBookConfig.enable_chatcodes =  false;
 <ul class="structural toc-item-list contains-active">
 <li class="toc-item toc-section contains-active">
 <div class="toc-title-box"><a href="sec11-section-name.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Modeling Data and Moving Between Worlds</span></a></div>
-<ul class="structural toc-item-list active"><li class="toc-item toc-section"><div class="toc-title-box"><a href="sec11-section-name.html#sec-Linear-Comb-Matrix-Mult" class="internal"><span class="codenumber">1.1.1</span> <span class="title">Linear Combinations and Transforming Data</span></a></div></li></ul>
+<ul class="structural toc-item-list active">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec11-section-name.html#sec-Linear-Comb-Data" class="internal"><span class="codenumber">1.1.1</span> <span class="title">Linear Combinations and Dealing with Data</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec11-section-name.html#sec-Transform-Data-Matrix-Mult" class="internal"><span class="codenumber">1.1.2</span> <span class="title">Transforming Data and Matrix Multiplication</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec11-section-name.html#sec-Transformations-Vectors" class="internal"><span class="codenumber">1.1.3</span> <span class="title">Transformations of Vectors</span></a></div></li>
+</ul>
 </li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec12-section-name.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Global vs Local Coordinates</span></a></div></li>
 </ul>
@@ -288,10 +292,11 @@ c_1 v_n+c_2 u_n
 </div>
 <div class="para">We can use these <em class="emphasis">linear combinations</em> applying them to our previous scenario for moving between price of materials and the revenue they generate.</div>
 </div>
-<section class="section" id="sec-Linear-Comb-Matrix-Mult"><h3 class="heading hide-type">
-<span class="type">Section</span><span class="space"> </span><span class="codenumber">1.1.1</span><span class="space"> </span><span class="title">Linear Combinations and Transforming Data</span>
-</h3></section><div class="para" id="sec11-section-name-10">Continuing our scenario from the introduction.  Suppose that a supplier provides four different products with prices, <span class="process-math">\(p_1, p_2, p_3, p_4 \text{,}\)</span> to three companies.  One thing we may want to do is to play with pricing schemes and look at the generated revenue we would get from each of the three companies. Suppose we have orders from the three companies for each of our four products as given in the table below.</div>
-<div class="para" id="sec11-section-name-11"><figure class="table table-like" id="sec11-section-name-11-1"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">1.1.1<span class="period">.</span></span><span class="space"> </span>Product Orders</figcaption><div class="tabular-box natural-width"><table class="tabular">
+<section class="section" id="sec-Linear-Comb-Data"><h3 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">1.1.1</span><span class="space"> </span><span class="title">Linear Combinations and Dealing with Data</span>
+</h3>
+<div class="para" id="sec-Linear-Comb-Data-2">Continuing our scenario from the introduction.  Suppose that a supplier provides four different products with prices, <span class="process-math">\(p_1, p_2, p_3, p_4 \text{,}\)</span> to three companies.  One thing we may want to do is to play with pricing schemes and look at the generated revenue we would get from each of the three companies. Suppose we have orders from the three companies for each of our four products as given in the table below.</div>
+<div class="para" id="sec-Linear-Comb-Data-3"><figure class="table table-like" id="sec-Linear-Comb-Data-3-1"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">1.1.1<span class="period">.</span></span><span class="space"> </span>Product Orders</figcaption><div class="tabular-box natural-width"><table class="tabular">
 <tr class="header-horizontal">
 <th scope="col" class="c m b1 r0 l0 t0 lines">Clients</th>
 <th scope="col" class="c m b1 r0 l0 t0 lines">Product 1</th>
@@ -321,7 +326,7 @@ c_1 v_n+c_2 u_n
 <td class="c m b0 r0 l0 t0 lines">23</td>
 </tr>
 </table></div></figure></div>
-<div class="para logical" id="sec11-section-name-12">
+<div class="para logical" id="sec-Linear-Comb-Data-4">
 <div class="para">Since there are four products, we can express the orders from the three companies for each product as an ordered triple (or vector) containing three entries (one for each company) for that product.  This would give us a set of four vectors:</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -341,7 +346,7 @@ c_1 v_n+c_2 u_n
 \end{equation*}
 </div>
 </div>
-<div class="para logical" id="sec11-section-name-13">
+<div class="para logical" id="sec-Linear-Comb-Data-5">
 <div class="para">If we use these vectors to represent the number of orders placed by each of the three companies for each of the four products, we can compute the total revenue as long as we know the price of each product. Let’s suppose that Product 1 is priced at $12, Product 2 is priced at $9, Product 3 is priced at $15, and Product 4 is priced at $7.  We can represent this computation as:</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -352,7 +357,7 @@ c_1 v_n+c_2 u_n
 41\\52\\23\end{bmatrix}
 \end{equation*}
 </div>
-<div class="para">Where the product means that the scalar values (12, 9, 15, and 7) are multipled by all entries in their respective vectors.  In other words, we get:</div>
+<div class="para">Where the product means that the scalar values or prices of each product (12, 9, 15, and 7) are multipled by all entries in their respective vectors (number of orders of each product placed in order by company). When these vectors are then added, we get the total revenue for each company organized as an ordered triple here since there are three companies.</div>
 <div class="displaymath process-math">
 \begin{equation*}
 \begin{bmatrix}
@@ -371,7 +376,7 @@ c_1 v_n+c_2 u_n
 \end{equation*}
 </div>
 </div>
-<div class="para logical" id="sec11-section-name-14">
+<div class="para logical" id="sec-Linear-Comb-Data-6">
 <div class="para">In general, we can think of the selling price for each of the four products as scalars <span class="process-math">\(p_1, p_2, p_3, p_4 \)</span> and compute the revenue generated by the purchases for the three companies expressing them as a three-entry revenue vector (one entry for each company) in the following way.</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -384,13 +389,135 @@ r_1\\r_2\\r_3\end{bmatrix}
 \end{equation*}
 </div>
 </div>
-<div class="para" id="sec11-section-name-15">Here we are purposefully using an example where the number of entries in each set of values of interest (prices and revenue) are different to highlight that although we can have the same number of entries in each set be the same, it is not necessary.  Eventually we will express the prices as a vector consisting of four entries and the revenue as a vector consisting of three entries.  In this case we will have four entries in one set of vectors (prices of different products) meaning that these vectors exist in <span class="process-math">\(\mathbb{R}^4\)</span> such as <span class="process-math">\(\begin{bmatrix}
+<div class="para" id="sec-Linear-Comb-Data-7">Here we are purposefully using an example where the number of entries in each set of values of interest (prices and revenue) are different to highlight that although we can have the same number of entries in each set be the same, it is not necessary.  Eventually we will express the prices as a vector consisting of four entries and the revenue as a vector consisting of three entries.  In this case we will have four entries in one set of vectors (prices of different products) meaning that these vectors exist in <span class="process-math">\(\mathbb{R}^4\)</span> such as <span class="process-math">\(\begin{bmatrix}
 p_1\\p_2\\p_3\\p_4
 \end{bmatrix}\)</span> and three entries in the other set of vectors (revenue from each of the three companies) existing in <span class="process-math">\(\mathbb{R}^3\)</span> like <span class="process-math">\(\begin{bmatrix}
 r_1\\r_2\\r_3\end{bmatrix}
 \text{.}\)</span>
 </div>
-<div class="para" id="sec11-section-name-16"></div></section></div>
+<div class="para" id="sec-Linear-Comb-Data-8"></div></section><section class="section" id="sec-Transform-Data-Matrix-Mult"><h3 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">1.1.2</span><span class="space"> </span><span class="title">Transforming Data and Matrix Multiplication</span>
+</h3>
+<div class="para" id="sec-Transform-Data-Matrix-Mult-2">As we have seen, we can use vectors to represent any entity that might have components.  This allows us to manipulate values of common components by adding or multiplying them while keeping the components separated in the process.  This use of linear combinations of vectors is useful, but the real desire of the previous scenario is to examine how manipulating one set of values (say, prices of products) affects another set of values (revenue for each company).  Just as we explored functional relationships in algebra and calculus, we also might want to explore functional relationships with objects that have not just one value as an input and one corresponding value as an output, but rather inputs that have many component values and a corresponding output that also has many component values.</div>
+<div class="para" id="sec-Transform-Data-Matrix-Mult-3">Recall that one of our first experiences with functions dealt with simple linear relationships.  For example, Hooke’s Law states that there is a simple linear relationship between force on a stretched or compressed spring and the distance of the associated stretch or compression, <span class="process-math">\(F=kx\text{,}\)</span> where <span class="process-math">\(k\)</span> is a constant of proportionality.  If we use <em class="emphasis">function notation</em> to express that force, <span class="process-math">\(F\text{,}\)</span> is a function of stretch, <span class="process-math">\(x\text{,}\)</span> we indicate the independent variable by placing it in parentheses getting, <span class="process-math">\(F\left(x\right)=kx\text{.}\)</span>
+</div>
+<div class="para logical" id="sec-Transform-Data-Matrix-Mult-4">
+<div class="para">In this situation, we obtain the force as an output by multiplying the stretch, <span class="process-math">\(x\text{,}\)</span> by a numerical value, <span class="process-math">\(k\text{.}\)</span>  What if in our scenario for the relationship between pricing of products and the revenue generated from each of our three companies, we could have a simple multiplication by something that acted like <span class="process-math">\(k\)</span> in our Hooke’s Law relationship?  In the <span class="process-math">\(F\left(x\right)=kx\)</span> case, there is a single value, <span class="process-math">\(k\text{,}\)</span> that affects the output, <span class="process-math">\(F\text{,}\)</span> for a given input, <span class="process-math">\(x\text{.}\)</span>  However, in the situation with price vs revenue, there are many values impacting the output of revenue for an input vector of prices (namely, all of the different order values provided by the companies placing orders).  So, our <em class="emphasis">k</em>-equivalent must take into account all of the values of the orders placed by the companies.  Here we can think of our single multiplier (like that of <span class="process-math">\(k\)</span>) as being comprised of an array of order values for the products like we had for the linear combination of the vectors</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\left\{ \begin{bmatrix}
+14\\32\\21
+\end{bmatrix}
+,\begin{bmatrix}
+9\\7\\8
+\end{bmatrix}
+,\begin{bmatrix}
+34\\12\\5
+\end{bmatrix}
+,\begin{bmatrix}
+41\\52\\23
+\end{bmatrix}
+\right\}
+\end{equation*}
+</div>
+<div class="para">except now we express this set of vectors as a single matrix where each column is a vector (called a <em class="emphasis">column vector</em>).  This gives an entity (matrix)</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{bmatrix}
+14\amp 9\amp 34\amp 41\\
+32\amp 7\amp 12\amp 52\\
+21\amp 8\amp 5\amp 23
+\end{bmatrix}
+\end{equation*}
+</div>
+<div class="para">that serves the role that <span class="process-math">\(k\)</span> did in <span class="process-math">\(F=kx\text{.}\)</span>
+</div>
+</div>
+<div class="para logical" id="sec-Transform-Data-Matrix-Mult-5">
+<div class="para">What this does for us is it allows us to think of the scalars (prices) we used in the linear combination,</div>
+<div class="displaymath process-math">
+\begin{equation*}
+p_1 \begin{bmatrix}
+14\\32\\21\end{bmatrix} + p_2 \begin{bmatrix}
+9\\7\\8\end{bmatrix} + p_3 \begin{bmatrix}
+34\\12\\5\end{bmatrix} + p_4 \begin{bmatrix}
+41\\52\\23\end{bmatrix} = \begin{bmatrix}
+r_1\\r_2\\r_3\end{bmatrix}
+\end{equation*}
+</div>
+<div class="para">as an input vector, <span class="process-math">\(\begin{bmatrix}
+p_1\\p_2\\p_3\\p_4
+\end{bmatrix}
+\text{,}\)</span> so that we get a relationship that is structurally similar to <span class="process-math">\(F=kx\text{:}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{bmatrix}
+r_1\\r_2\\r_3\end{bmatrix} =
+\begin{bmatrix}
+14\amp 9\amp 34\amp 41\\
+32\amp 7\amp 12\amp 52\\
+21\amp 8\amp 5\amp 23
+\end{bmatrix}
+\begin{bmatrix}
+p_1\\p_2\\p_3\\p_4
+\end{bmatrix}
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(\begin{bmatrix}
+r_1\\r_2\\r_3\end{bmatrix} \)</span> acts like <span class="process-math">\(F\text{,}\)</span> <span class="process-math">\(\begin{bmatrix}
+p_1\\p_2\\p_3\\p_4
+\end{bmatrix}\)</span> acts like <span class="process-math">\(x\text{,}\)</span> and <span class="process-math">\(\begin{bmatrix}
+14\amp 9\amp 34\amp 41\\
+32\amp 7\amp 12\amp 52\\
+21\amp 8\amp 5\amp 23
+\end{bmatrix}\)</span> acts like <span class="process-math">\(k\text{.}\)</span>
+</div>
+</div>
+<div class="para logical" id="sec-Transform-Data-Matrix-Mult-6">
+<div class="para">The use of a matrix as a single entity that we can use to multiply by a vector brings an interesting question.  What does it mean to multiply by a matrix.  If we look at what we want to do from our functional perspective in the case above, we would like to have the outputs represent the revenue in the way we ultimately added them up in the linear combination of the vectors with the prices viewed as scalars for the column vectors in the matrix.  This means that we will need to define the multiplication of a matrix and a vector in such a way that we get:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{bmatrix}
+14\amp 9\amp 34\amp 41\\
+32\amp 7\amp 12\amp 52\\
+21\amp 8\amp 5\amp 23
+\end{bmatrix}
+\begin{bmatrix}
+p_1\\p_2\\p_3\\p_4
+\end{bmatrix} = 
+\begin{bmatrix}
+p_1\cdot14 + p_2\cdot9 + p_3\cdot34 + p_4\cdot41 \\
+p_1\cdot32 + p_2\cdot7 + p_3\cdot12 + p_4\cdot52 \\
+p_1\cdot21 + p_2\cdot8 + p_3\cdot5 + p_4\cdot23
+\end{bmatrix}
+\end{equation*}
+</div>
+<div class="para">Now this may seem complicated, but one way to look at the process is that we proceed across a row in the matrix while moving down the vector component by component adding the products of the row entries of the matrix and the corresponding component entries of the vector.  For example, for the top entry in the resulting revenue vector, we obtained it by moving across the first row with values 14, 9, 34, and 41, while multiplying each by their respective position price value <span class="process-math">\(p_1\text{,}\)</span> <span class="process-math">\(p_2\text{,}\)</span> <span class="process-math">\(p_3\text{,}\)</span> and <span class="process-math">\(p_4\)</span> and then adding these four products together.  This gives <span class="process-math">\(p_1\cdot14 + p_2\cdot9 + p_3\cdot34 + p_4\cdot41\text{.}\)</span>  Now we proceed similarly for each row moving across the row and down the vector creating product combinations and adding them together as we go.  The row of the matrix we use for the computation becomes the row position in the resulting vector we are creating (in this case, revenue).</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{bmatrix}
+14\amp 9\amp 34\amp 41\\
+32\amp 7\amp 12\amp 52\\
+21\amp 8\amp 5\amp 23
+\end{bmatrix}
+\begin{bmatrix}
+p_1\\p_2\\p_3\\p_4
+\end{bmatrix} = 
+\begin{bmatrix}
+p_1\cdot14 + p_2\cdot9 + p_3\cdot34 + p_4\cdot41 \\
+p_1\cdot32 + p_2\cdot7 + p_3\cdot12 + p_4\cdot52 \\
+p_1\cdot21 + p_2\cdot8 + p_3\cdot5 + p_4\cdot23
+\end{bmatrix} = 
+\begin{bmatrix}
+r_1\\r_2\\r_3\end{bmatrix}
+\end{equation*}
+</div>
+<div class="para">You will likely notice that the result of the way we have chosen to define the multiplication of a matrix and a vector only makes sense if the number of columns of the matrix matches the number of entries (rows of components) of the vector.</div>
+</div></section><section class="section" id="sec-Transformations-Vectors"><h3 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">1.1.3</span><span class="space"> </span><span class="title">Transformations of Vectors</span>
+</h3>
+<div class="para" id="sec-Transformations-Vectors-2"></div></section></section></div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="ch-chapter-title.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec12-section-name.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
