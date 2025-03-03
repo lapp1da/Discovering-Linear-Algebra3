@@ -371,11 +371,11 @@ we get the total revenue for each company organized as an ordered triple (since 
 <section xml:id="sec-Transform-Data-Matrix-Mult">
   <title>Transforming Data and Matrix Multiplication</title>
   <p>
-    As we have seen, we can use vectors to represent any entity that might have components.  This allows 
+    As we have seen, we can use vectors to represent any entity that might have multiple components.  This allows 
     us to manipulate values of common components by adding or multiplying them while keeping the 
     components separated in the process.  This use of linear combinations of vectors is useful, but the 
     real desire of the previous scenario is to examine how manipulating one set of values (say, prices of 
-    products) affects another set of values (revenue for each company).  Just as we explored functional 
+    products) affects another set of values (revenue from each company).  Just as we explored functional 
     relationships in algebra and calculus, we also might want to explore functional relationships with 
     objects that have not just one value as an input and one corresponding value as an output, but rather 
     inputs that have many component values and a corresponding output that also has many component values.
@@ -466,7 +466,7 @@ we get the total revenue for each company organized as an ordered triple (since 
   </p>
   <p>
     The use of a matrix as a single entity that we can use to multiply by a vector brings an interesting 
-    question.  What does it mean to multiply by a matrix.  If we look at what we want to do from our 
+    question.  What does it mean to multiply by a matrix?  If we look at what we want to do from our 
     functional perspective in the case above, we would like to have the outputs represent the revenue 
     in the way we ultimately added them up in the linear combination of the vectors with the prices 
     viewed as scalars for the column vectors in the matrix.  This means that we will need to define the 
@@ -486,8 +486,15 @@ we get the total revenue for each company organized as an ordered triple (since 
       p_1\cdot14 + p_2\cdot9 + p_3\cdot34 + p_4\cdot41 \\
       p_1\cdot32 + p_2\cdot7 + p_3\cdot12 + p_4\cdot52 \\
       p_1\cdot21 + p_2\cdot8 + p_3\cdot5 + p_4\cdot23
-      \end{bmatrix}
+      \end{bmatrix} =
     </me>
+    <me>
+      p_1 \begin{bmatrix}
+      14\\32\\21\end{bmatrix} + p_2 \begin{bmatrix}
+      9\\7\\8\end{bmatrix} + p_3 \begin{bmatrix}
+      34\\12\\5\end{bmatrix} + p_4 \begin{bmatrix}
+      41\\52\\23\end{bmatrix}
+     </me>
     Now this may seem complicated, but one way to look at the process is that we proceed across a row in 
     the matrix while moving down the vector component by component adding the products of the row entries 
     of the matrix and the corresponding component entries of the vector.  For example, for the top entry 
@@ -527,8 +534,71 @@ we get the total revenue for each company organized as an ordered triple (since 
   <p>
     Now that we have defined what it means to multiply a matrix and a vector, we can go back to the concept 
     that motivated it, namely, the desire to move between an input vector and an output vector.  In a way, 
-    we are looking to <em>transform</em> one type of vector into another type of vector.  Just as the 
-    relationship of Hooke's Law can be thought of as transforming <em>stretch</em> into <em>force</em>, 
+    we are looking to <em>transform</em> one type of vector into another type of vector.  When we think of 
+    our example of Hooke's Law as <em>transforming</em> stretch or compression into force, we note that this 
+    happens in our daily lives and we are not often even aware it is there.  Consider a trip to the grocery 
+    store.  In the produce aisle, we take zucchini and place them on a scale.  In turn, the scale returns a 
+    weight (force) in pounds (if you are in the USA) or mass in kilograms (practically anywhere else in the 
+    world).  Inside the scale, there is a spring that is being compressed or stretched.  This value is then 
+    <em>transformed</em> into a value of weight or mass using Hooke's Law.  In fact, it is more likely the 
+    case that you are more familiar with a transformation in form of cost instead of weight or mass 
+    as most digital scales today allow us to scan the scale's output barcode registering a cost in our 
+    "shop and scan" app.  Below is a video illustrating this process.  
+  </p>
+  <p>
+    -----------INSERT VIDEO HERE--------------
+  </p>
+  <p>
+    So what are the characteristics of this type of transformation?  Consider the case from the video where 
+    we saw that the doubling the force (or mass) corresponded in the doubling of the stretch.  Similarly, 
+    tripling the force would triple the stretch.  In general, this means that any multiple of stretch will 
+    correspond to the same multiple of force (or mass or cost) depending on the output we desire for the 
+    transformation.  We can see this from the basic algebra from Hooke's Law.
+    <me>
+      F\left(2x\right)=k\left(2x\right)=2\left(kx\right)=2F\left(x\right)
+    </me>
+    What this says is that <em>scalar multiplication is preserved</em>.
+  </p>
+  <p>
+    Now this is all well and good if we are looking at replicating the same stretch multiple times (e.g. all of 
+    our zucchini are the exact same weight), but what about the case where we have multiple numbers of 
+    zucchini of varying weight (corresponding to varying stretches)?  We also want to have it be the case that 
+    if we place two different "stretch" zucchinis on the scale that the resulting weight will simply be added 
+    together as well so that their corresponding costs will also be added together (since we are paying based 
+    on the cost/unit weight).  In this case, suppose we have two possibly different stretches <m>x</m>, and 
+    <m>y</m>.  Here we get 
+    <me>
+      F\left(x+y\right)=k\left(x+y\right)=kx+ky=F\left(x\right)+F\left(y\right)
+    </me>
+    What this says is that <em>vector addition is preserved</em>.  In this case, we can think of the inputs, 
+    <m>x</m> and <m>y</m>, as vectors with only one component.
+  </p>
+  <p>
+    Recall from your Algebra 1 days, a function like <m>F=kx</m> is the most basic of linear functions.  
+    Therefore, it should come as no surprise that these two aspects of behavior (preservation of scalar 
+    multiplication and vector addition) by this type of function are the defining properties of what we call 
+    <em>linear transformations</em>.
+  </p>
+  <definition xml:id="def-">
+    <statement>
+      <p>
+        Suppose <m>T</m> is a mapping between two vector spaces,<m>V</m> and <m>W</m>, 
+        <m>T: V\rightarrow W</m> such that both scalar multiplication and vector addition are preserved.
+        <me>
+          T\left(\alpha \mathbf{v}\right)=\alpha T\left(\mathbf{v}\right)
+        </me>
+        
+        <me>
+          T\left(\mathbf{v}+\mathbf{w}\right)=T\left(\mathbf{v}\right)+T\left(\mathbf{w}\right)
+        </me>
+        where <m>\mathbf{v}\in V</m>, and <m>\mathbf{w} \in W</m>, and <m>\alpha</m> is a scalar.  
+        Then the mapping <m>T</m> is called <m>\mathbf{linear}</m> or a 
+        <m>\mathbf{linear} </m> <m>\mathbf{transformation}</m>.
+      </p>
+    </statement>
+  </definition>
+    <p>
+    Just as the relationship of Hooke's Law can be thought of as transforming <em>stretch</em> into <em>force</em>, 
     in our scenario between pricing structures and the revenue generated, we are similarly looking to transform a 
     pricing scheme into the resulting revenue for our three companies.  We can even use function notation to 
     represent this relationship.  If we let the vector <m>\mathbf{p}=\begin{bmatrix}
