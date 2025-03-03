@@ -96,14 +96,14 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.5.9';
+eBookConfig.runestone_version = '7.5.10';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.d7db380f34a0a67e.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.f6bda0c0ccce4835.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<script src="_static/prefix-runtime.c2d04816128ebb44.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.f6bda0c0ccce4835.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
 <link rel="stylesheet" type="text/css" href="_static/prefix-runestone.e0c6d4592e23c667.css">
 <style>
 </style>
@@ -421,7 +421,7 @@ r_1\\r_2\\r_3\end{bmatrix}
 <div class="para" id="sec-Linear-Comb-Data-7"></div></section><section class="section" id="sec-Transform-Data-Matrix-Mult"><h3 class="heading hide-type">
 <span class="type">Section</span><span class="space"> </span><span class="codenumber">1.1.2</span><span class="space"> </span><span class="title">Transforming Data and Matrix Multiplication</span>
 </h3>
-<div class="para" id="sec-Transform-Data-Matrix-Mult-2">As we have seen, we can use vectors to represent any entity that might have components.  This allows us to manipulate values of common components by adding or multiplying them while keeping the components separated in the process.  This use of linear combinations of vectors is useful, but the real desire of the previous scenario is to examine how manipulating one set of values (say, prices of products) affects another set of values (revenue for each company).  Just as we explored functional relationships in algebra and calculus, we also might want to explore functional relationships with objects that have not just one value as an input and one corresponding value as an output, but rather inputs that have many component values and a corresponding output that also has many component values.</div>
+<div class="para" id="sec-Transform-Data-Matrix-Mult-2">As we have seen, we can use vectors to represent any entity that might have multiple components.  This allows us to manipulate values of common components by adding or multiplying them while keeping the components separated in the process.  This use of linear combinations of vectors is useful, but the real desire of the previous scenario is to examine how manipulating one set of values (say, prices of products) affects another set of values (revenue from each company).  Just as we explored functional relationships in algebra and calculus, we also might want to explore functional relationships with objects that have not just one value as an input and one corresponding value as an output, but rather inputs that have many component values and a corresponding output that also has many component values.</div>
 <div class="para" id="sec-Transform-Data-Matrix-Mult-3">Recall that one of our first experiences with functions dealt with simple linear relationships.  For example, Hooke’s Law states that there is a simple linear relationship between force on a stretched or compressed spring and the distance of the associated stretch or compression, <span class="process-math">\(F=kx\text{,}\)</span> where <span class="process-math">\(k\)</span> is a constant of proportionality.  If we use <em class="emphasis">function notation</em> to express that force, <span class="process-math">\(F\text{,}\)</span> is a function of stretch, <span class="process-math">\(x\text{,}\)</span> we indicate the independent variable by placing it in parentheses getting, <span class="process-math">\(F\left(x\right)=kx\text{.}\)</span>
 </div>
 <div class="para logical" id="sec-Transform-Data-Matrix-Mult-4">
@@ -498,7 +498,7 @@ p_1\\p_2\\p_3\\p_4
 </div>
 </div>
 <div class="para logical" id="sec-Transform-Data-Matrix-Mult-6">
-<div class="para">The use of a matrix as a single entity that we can use to multiply by a vector brings an interesting question.  What does it mean to multiply by a matrix.  If we look at what we want to do from our functional perspective in the case above, we would like to have the outputs represent the revenue in the way we ultimately added them up in the linear combination of the vectors with the prices viewed as scalars for the column vectors in the matrix.  This means that we will need to define the multiplication of a matrix and a vector in such a way that we get:</div>
+<div class="para">The use of a matrix as a single entity that we can use to multiply by a vector brings an interesting question.  What does it mean to multiply by a matrix?  If we look at what we want to do from our functional perspective in the case above, we would like to have the outputs represent the revenue in the way we ultimately added them up in the linear combination of the vectors with the prices viewed as scalars for the column vectors in the matrix.  This means that we will need to define the multiplication of a matrix and a vector in such a way that we get:</div>
 <div class="displaymath process-math">
 \begin{equation*}
 \begin{bmatrix}
@@ -513,7 +513,16 @@ p_1\\p_2\\p_3\\p_4
 p_1\cdot14 + p_2\cdot9 + p_3\cdot34 + p_4\cdot41 \\
 p_1\cdot32 + p_2\cdot7 + p_3\cdot12 + p_4\cdot52 \\
 p_1\cdot21 + p_2\cdot8 + p_3\cdot5 + p_4\cdot23
-\end{bmatrix}
+\end{bmatrix} =
+\end{equation*}
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+p_1 \begin{bmatrix}
+14\\32\\21\end{bmatrix} + p_2 \begin{bmatrix}
+9\\7\\8\end{bmatrix} + p_3 \begin{bmatrix}
+34\\12\\5\end{bmatrix} + p_4 \begin{bmatrix}
+41\\52\\23\end{bmatrix}
 \end{equation*}
 </div>
 <div class="para">Now this may seem complicated, but one way to look at the process is that we proceed across a row in the matrix while moving down the vector component by component adding the products of the row entries of the matrix and the corresponding component entries of the vector.  For example, for the top entry in the resulting revenue vector, we obtained it by moving across the first row with values 14, 9, 34, and 41, while multiplying each by their respective position price value <span class="process-math">\(p_1\text{,}\)</span> <span class="process-math">\(p_2\text{,}\)</span> <span class="process-math">\(p_3\text{,}\)</span> and <span class="process-math">\(p_4\)</span> and then adding these four products together.  This gives <span class="process-math">\(p_1\cdot14 + p_2\cdot9 + p_3\cdot34 + p_4\cdot41\text{.}\)</span>  Now we proceed similarly for each row moving across the row and down the vector creating product combinations and adding them together as we go.  The row of the matrix we use for the computation becomes the row position in the resulting vector we are creating (in this case, revenue).</div>
@@ -540,8 +549,46 @@ r_1\\r_2\\r_3\end{bmatrix}
 </div></section><section class="section" id="sec-Transformations-Vectors"><h3 class="heading hide-type">
 <span class="type">Section</span><span class="space"> </span><span class="codenumber">1.1.3</span><span class="space"> </span><span class="title">Transformations of Vectors</span>
 </h3>
-<div class="para logical" id="sec-Transformations-Vectors-2">
-<div class="para">Now that we have defined what it means to multiply a matrix and a vector, we can go back to the concept that motivated it, namely, the desire to move between an input vector and an output vector.  In a way, we are looking to <em class="emphasis">transform</em> one type of vector into another type of vector.  Just as the relationship of Hooke’s Law can be thought of as transforming <em class="emphasis">stretch</em> into <em class="emphasis">force</em>, in our scenario between pricing structures and the revenue generated, we are similarly looking to transform a pricing scheme into the resulting revenue for our three companies.  We can even use function notation to represent this relationship.  If we let the vector <span class="process-math">\(\mathbf{p}=\begin{bmatrix}
+<div class="para" id="sec-Transformations-Vectors-2">Now that we have defined what it means to multiply a matrix and a vector, we can go back to the concept that motivated it, namely, the desire to move between an input vector and an output vector.  In a way, we are looking to <em class="emphasis">transform</em> one type of vector into another type of vector.  When we think of our example of Hooke’s Law as <em class="emphasis">transforming</em> stretch or compression into force, we note that this happens in our daily lives and we are not often even aware it is there.  Consider a trip to the grocery store.  In the produce aisle, we take zucchini and place them on a scale.  In turn, the scale returns a weight (force) in pounds (if you are in the USA) or mass in kilograms (practically anywhere else in the world).  Inside the scale, there is a spring that is being compressed or stretched.  This value is then <em class="emphasis">transformed</em> into a value of weight or mass using Hooke’s Law.  In fact, it is more likely the case that you are more familiar with a transformation in form of cost instead of weight or mass as most digital scales today allow us to scan the scale’s output barcode registering a cost in our "shop and scan" app.  Below is a video illustrating this process.</div>
+<div class="para" id="sec-Transformations-Vectors-3">-----------INSERT VIDEO HERE--------------</div>
+<div class="para logical" id="sec-Transformations-Vectors-4">
+<div class="para">So what are the characteristics of this type of transformation?  Consider the case from the video where we saw that the doubling the force (or mass) corresponded in the doubling of the stretch.  Similarly, tripling the force would triple the stretch.  In general, this means that any multiple of stretch will correspond to the same multiple of force (or mass or cost) depending on the output we desire for the transformation.  We can see this from the basic algebra from Hooke’s Law.</div>
+<div class="displaymath process-math">
+\begin{equation*}
+F\left(2x\right)=k\left(2x\right)=2\left(kx\right)=2F\left(x\right)
+\end{equation*}
+</div>
+<div class="para">What this says is that <em class="emphasis">scalar multiplication is preserved</em>.</div>
+</div>
+<div class="para logical" id="sec-Transformations-Vectors-5">
+<div class="para">Now this is all well and good if we are looking at replicating the same stretch multiple times (e.g. all of our zucchini are the exact same weight), but what about the case where we have multiple numbers of zucchini of varying weight (corresponding to varying stretches)?  We also want to have it be the case that if we place two different "stretch" zucchinis on the scale that the resulting weight will simply be added together as well so that their corresponding costs will also be added together (since we are paying based on the cost/unit weight).  In this case, suppose we have two possibly different stretches <span class="process-math">\(x\text{,}\)</span> and <span class="process-math">\(y\text{.}\)</span>  Here we get</div>
+<div class="displaymath process-math">
+\begin{equation*}
+F\left(x+y\right)=k\left(x+y\right)=kx+ky=F\left(x\right)+F\left(y\right)
+\end{equation*}
+</div>
+<div class="para">What this says is that <em class="emphasis">vector addition is preserved</em>.  In this case, we can think of the inputs, <span class="process-math">\(x\)</span> and <span class="process-math">\(y\text{,}\)</span> as vectors with only one component.</div>
+</div>
+<div class="para" id="sec-Transformations-Vectors-6">Recall from your Algebra 1 days, a function like <span class="process-math">\(F=kx\)</span> is the most basic of linear functions. Therefore, it should come as no surprise that these two aspects of behavior (preservation of scalar multiplication and vector addition) by this type of function are the defining properties of what we call <em class="emphasis">linear transformations</em>.</div>
+<article class="definition definition-like" id="def-"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.1.1</span><span class="period">.</span>
+</h4>
+<div class="para logical" id="def--1-1">
+<div class="para">Suppose <span class="process-math">\(T\)</span> is a mapping between two vector spaces,<span class="process-math">\(V\)</span> and <span class="process-math">\(W\text{,}\)</span> <span class="process-math">\(T: V\rightarrow W\)</span> such that both scalar multiplication and vector addition are preserved.</div>
+<div class="displaymath process-math">
+\begin{equation*}
+T\left(\alpha \mathbf{v}\right)=\alpha T\left(\mathbf{v}\right)
+\end{equation*}
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+T\left(\mathbf{v}+\mathbf{w}\right)=T\left(\mathbf{v}\right)+T\left(\mathbf{w}\right)
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(\mathbf{v}\in V\text{,}\)</span> and <span class="process-math">\(\mathbf{w} \in W\text{,}\)</span> and <span class="process-math">\(\alpha\)</span> is a scalar. Then the mapping <span class="process-math">\(T\)</span> is called <span class="process-math">\(\mathbf{linear}\)</span> or a <span class="process-math">\(\mathbf{linear} \)</span> <span class="process-math">\(\mathbf{transformation}\text{.}\)</span>
+</div>
+</div></article><div class="para logical" id="sec-Transformations-Vectors-8">
+<div class="para">Just as the relationship of Hooke’s Law can be thought of as transforming <em class="emphasis">stretch</em> into <em class="emphasis">force</em>, in our scenario between pricing structures and the revenue generated, we are similarly looking to transform a pricing scheme into the resulting revenue for our three companies.  We can even use function notation to represent this relationship.  If we let the vector <span class="process-math">\(\mathbf{p}=\begin{bmatrix}
 p_1\\p_2\\p_3\\p_4 \end{bmatrix}\text{,}\)</span> we can think of the product of the matrix of orders by the companies and the vector <span class="process-math">\(\mathbf{p}\)</span> as a revenue transformation (or function), <span class="process-math">\(R\text{,}\)</span> given by</div>
 <div class="displaymath process-math">
 \begin{equation*}
