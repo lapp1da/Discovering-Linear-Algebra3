@@ -91,27 +91,8 @@
         </p>
       </statement>
     </definition>
-    <me>
-      \mathbf{v}+\mathbf{u} = 
-      \begin{bmatrix}
-      v_1\\
-      v_2\\
-      \vdots\\
-      v_n
-      \end{bmatrix} +
-      \begin{bmatrix}
-      u_1\\
-      u_2\\
-      \vdots\\
-      u_n
-      \end{bmatrix} =
-      \begin{bmatrix}
-      v_1+u_1\\
-      v_2+u_2\\
-      \vdots\\
-      v_n+u_n
-      \end{bmatrix}
-    </me>
+    </p>
+    <p>
     For example, suppose we have the two vectors in <m>\mathbb{R}^3</m>,  
     <m>
     \begin{bmatrix}
@@ -149,22 +130,29 @@
     In essence, we scaled the vector by a factor of 2.
   </p>
   <p>
-    In general, we can define scalar multiplication of a vector as 
-    <men>
-    c\mathbf{v} =  c\cdot \begin{bmatrix}
-    v_1\\
-    v_2\\
-    \vdots\\
-    v_n
-    \end{bmatrix} =
-    \begin{bmatrix}
-    cv_1\\
-    cv_2\\
-    \vdots\\
-    cv_n
-    \end{bmatrix}
-    </men>
-    where <m>c\in \mathbb{R}</m>.
+    <definition xml:id="def-scalar-mult">
+      <statement>
+        <p>
+          In general, we can define scalar multiplication of a vector as 
+        <men>
+        c\mathbf{v} =  c\cdot \begin{bmatrix}
+        v_1\\
+        v_2\\
+        \vdots\\
+        v_n
+       \end{bmatrix} =
+       \begin{bmatrix}
+        cv_1\\
+        cv_2\\
+        \vdots\\
+        cv_n
+        \end{bmatrix}
+        </men>
+        where <m>c\in \mathbb{R}</m>.
+        </p>
+      </statement>
+    </definition>
+    
   </p>
   <p>
 Combining scalar multiplication with vector addition, we get
@@ -192,7 +180,7 @@ Combining scalar multiplication with vector addition, we get
     We can use these <em>linear combinations</em> applying them to our previous scenario for moving 
     between price of materials and the revenue they generate.
   </p>  
-<section xml:id="sec-Linear-Comb-Data">
+<subsection xml:id="sec-Linear-Comb-Data">
   <title>Linear Combinations and Dealing with Data</title>
 
 
@@ -398,8 +386,8 @@ we get the total revenue for each company organized as an ordered triple (since 
     
     
   </p>
-  </section>
-<section xml:id="sec-Transform-Data-Matrix-Mult">
+  </subsection>
+<subsection xml:id="sec-Transform-Data-Matrix-Mult">
   <title>Transforming Data and Matrix Multiplication</title>
   <p>
     As we have seen, we can use vectors to represent any entity that might have multiple components.  This allows 
@@ -559,8 +547,8 @@ we get the total revenue for each company organized as an ordered triple (since 
     matrix and a vector only makes sense if the number of columns of the matrix matches the number of 
     entries (rows of components) of the vector.
   </p>
-</section>
-<section xml:id="sec-Transformations-Vectors">
+</subsection>
+<subsection xml:id="sec-Transformations-Vectors">
   <title>Transformations of Vectors</title>
   <p>
     Now that we have defined what it means to multiply a matrix and a vector, we can go back to the concept 
@@ -611,7 +599,24 @@ we get the total revenue for each company organized as an ordered triple (since 
     <em>linear transformations</em>.
   </p>
   <p>
-  
+  <definition xml:id="def-linear-mapping">
+    <statement>
+      <p>
+        Suppose <m>T</m> is a mapping between two vector spaces,<m>V</m> and <m>W</m>, 
+        <m>T: V\rightarrow W</m> such that both scalar multiplication and vector addition are preserved.
+        <me>
+          T\left(\alpha \mathbf{v}\right)=\alpha T\left(\mathbf{v}\right)
+        </me>
+        
+        <me>
+          T\left(\mathbf{v}+\mathbf{w}\right)=T\left(\mathbf{v}\right)+T\left(\mathbf{w}\right)
+        </me>
+        where <m>\mathbf{v}\in V</m>, and <m>\mathbf{w} \in W</m>, and <m>\alpha</m> is a scalar.  
+        Then the mapping <m>T</m> is called <m>\mathbf{linear}</m> or a 
+        <m>\mathbf{linear} </m> <m>\mathbf{transformation}</m>.
+      </p>
+    </statement>
+  </definition>
   </p>
     <p>
     Just as the relationship of Hooke's Law can be thought of as transforming <em>stretch</em> into <em>force</em>, 
@@ -641,5 +646,5 @@ we get the total revenue for each company organized as an ordered triple (since 
    We can represent this mapping as <m>R:\mathbb{R}^4 \rightarrow \mathbb{R}^3</m>.
 
   </p>
-</section>
+</subsection>
 </section>
