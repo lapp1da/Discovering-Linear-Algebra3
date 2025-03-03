@@ -149,9 +149,9 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-section contains-active">
 <div class="toc-title-box"><a href="sec11-section-name.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Modeling Data and Moving Between Worlds</span></a></div>
 <ul class="structural toc-item-list active">
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec11-section-name.html#sec-Linear-Comb-Data" class="internal"><span class="codenumber">1.1.1</span> <span class="title">Linear Combinations and Dealing with Data</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec11-section-name.html#sec-Transform-Data-Matrix-Mult" class="internal"><span class="codenumber">1.1.2</span> <span class="title">Transforming Data and Matrix Multiplication</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec11-section-name.html#sec-Transformations-Vectors" class="internal"><span class="codenumber">1.1.3</span> <span class="title">Transformations of Vectors</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec11-section-name.html#sec-Linear-Comb-Data" class="internal"><span class="codenumber">1.1.1</span> <span class="title">Linear Combinations and Dealing with Data</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec11-section-name.html#sec-Transform-Data-Matrix-Mult" class="internal"><span class="codenumber">1.1.2</span> <span class="title">Transforming Data and Matrix Multiplication</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec11-section-name.html#sec-Transformations-Vectors" class="internal"><span class="codenumber">1.1.3</span> <span class="title">Transformations of Vectors</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec12-section-name.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Global vs Local Coordinates</span></a></div></li>
@@ -192,8 +192,12 @@ eBookConfig.enable_chatcodes =  false;
 1\\7\\-1\\4
 \end{bmatrix}
 \text{.}\)</span> Note that we are using boldface to denote the names of the vectors for convenience to distinguish them from numerical objects that we call <em class="emphasis">scalars</em>.  In a text like this, using boldface makes sense in print, but typically, in written work, we use a harpoon over the name since boldface is not practical with a pen.  In this case, we would write the names as <span class="process-math">\(\overset{\rightharpoonup}{v}\)</span> or <span class="process-math">\(\overset{\rightharpoonup}{w}\)</span> respectively.</div>
-<div class="para logical" id="sec11-section-name-5">
-<div class="para">You may have encountered vectors before in geometry or physics.  We will go into greater detail later with respect to the geometric interpretation, but for now, the behavior remains the same in that operations still work as they do in geometry and physics.  Essentially, vectors consist of <em class="emphasis">components</em> so that when the vectors are added, we simply add the components.</div>
+<div class="para" id="sec11-section-name-5">You may have encountered vectors before in geometry or physics.  We will go into greater detail later with respect to the geometric interpretation, but for now, the behavior remains the same in that operations still work as they do in geometry and physics.  Essentially, vectors consist of <em class="emphasis">components</em> so that when the vectors are added, we simply add the components.</div>
+<div class="para" id="sec11-section-name-6"><article class="definition definition-like" id="def-vector-add"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.1.1</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="def-vector-add-1-1">
+<div class="para">If <span class="process-math">\(\mathbf{v}\)</span> and <span class="process-math">\(\mathbf{u}\)</span> are vectors, we define vector addition as adding the vectors component by component.  Note that the vectors must be of the same dimension.</div>
 <div class="displaymath process-math">
 \begin{equation*}
 \mathbf{v}+\mathbf{u} = 
@@ -217,7 +221,8 @@ v_n+u_n
 \end{bmatrix}
 \end{equation*}
 </div>
-<div class="para">For example, suppose we have the two vectors in <span class="process-math">\(\mathbb{R}^3\text{,}\)</span> <span class="process-math">\(\begin{bmatrix}
+</div></article></div>
+<div class="para" id="sec11-section-name-7">For example, suppose we have the two vectors in <span class="process-math">\(\mathbb{R}^3\text{,}\)</span> <span class="process-math">\(\begin{bmatrix}
 1\\-5\\2
 \end{bmatrix}
 \text{and}
@@ -235,8 +240,7 @@ v_n+u_n
 \end{bmatrix}
 \text{.}\)</span>
 </div>
-</div>
-<div class="para logical" id="sec11-section-name-6">
+<div class="para logical" id="sec11-section-name-8">
 <div class="para">The other basic operation we can do with vectors is to <em class="emphasis">scale</em> them (geometrically make them longer or shorter or in the case of negative values, make them go in the opposite direction).  For this reason, when we multiply the vector by a numerical value, we call that value a <em class="emphasis">scalar</em>.  For example,</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -250,9 +254,12 @@ v_n+u_n
 </div>
 <div class="para">In essence, we scaled the vector by a factor of 2.</div>
 </div>
-<div class="para logical" id="sec11-section-name-7">
+<div class="para" id="sec11-section-name-9"><article class="definition definition-like" id="def-scalar-mult"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.1.2</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="def-scalar-mult-1-1">
 <div class="para">In general, we can define scalar multiplication of a vector as</div>
-<div class="displaymath process-math" id="sec11-section-name-7-1">
+<div class="displaymath process-math" id="def-scalar-mult-1-1-1">
 \begin{equation}
 c\mathbf{v} =  c\cdot \begin{bmatrix}
 v_1\\
@@ -270,10 +277,10 @@ cv_n
 </div>
 <div class="para">where <span class="process-math">\(c\in \mathbb{R}\text{.}\)</span>
 </div>
-</div>
-<div class="para logical" id="sec11-section-name-8">
+</div></article></div>
+<div class="para logical" id="sec11-section-name-10">
 <div class="para">Combining scalar multiplication with vector addition, we get</div>
-<div class="displaymath process-math" id="sec11-section-name-8-1">
+<div class="displaymath process-math" id="sec11-section-name-10-1">
 \begin{equation}
 c_1\cdot \mathbf{v}+c_2\cdot \mathbf{u} = 
 c_1\cdot \begin{bmatrix}
@@ -298,11 +305,11 @@ c_1 v_n+c_2 u_n
 </div>
 <div class="para">We can use these <em class="emphasis">linear combinations</em> applying them to our previous scenario for moving between price of materials and the revenue they generate.</div>
 </div>
-<section class="section" id="sec-Linear-Comb-Data"><h3 class="heading hide-type">
-<span class="type">Section</span><span class="space"> </span><span class="codenumber">1.1.1</span><span class="space"> </span><span class="title">Linear Combinations and Dealing with Data</span>
+<section class="subsection" id="sec-Linear-Comb-Data"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">1.1.1</span><span class="space"> </span><span class="title">Linear Combinations and Dealing with Data</span>
 </h3>
 <div class="para" id="sec-Linear-Comb-Data-2">Continuing our scenario from the introduction.  Suppose that a supplier provides four different products with prices, <span class="process-math">\(p_1, p_2, p_3, p_4 \text{,}\)</span> to three companies.  One thing we may want to do is to play with pricing schemes and look at the generated revenue we would get from each of the three companies. Suppose we have orders from the three companies for each of our four products as given in the table below.</div>
-<div class="para" id="sec-Linear-Comb-Data-3"><figure class="table table-like" id="sec-Linear-Comb-Data-3-1"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">1.1.1<span class="period">.</span></span><span class="space"> </span>Product Orders</figcaption><div class="tabular-box natural-width"><table class="tabular">
+<div class="para" id="sec-Linear-Comb-Data-3"><figure class="table table-like" id="sec-Linear-Comb-Data-3-1"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">1.1.3<span class="period">.</span></span><span class="space"> </span>Product Orders</figcaption><div class="tabular-box natural-width"><table class="tabular">
 <tr class="header-horizontal">
 <th scope="col" class="c m b1 r0 l0 t0 lines">Clients</th>
 <th scope="col" class="c m b1 r0 l0 t0 lines">Product 1</th>
@@ -418,8 +425,8 @@ p_1\\p_2\\p_3\\p_4
 r_1\\r_2\\r_3\end{bmatrix}
 \text{.}\)</span>
 </div>
-<div class="para" id="sec-Linear-Comb-Data-7"></div></section><section class="section" id="sec-Transform-Data-Matrix-Mult"><h3 class="heading hide-type">
-<span class="type">Section</span><span class="space"> </span><span class="codenumber">1.1.2</span><span class="space"> </span><span class="title">Transforming Data and Matrix Multiplication</span>
+<div class="para" id="sec-Linear-Comb-Data-7"></div></section><section class="subsection" id="sec-Transform-Data-Matrix-Mult"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">1.1.2</span><span class="space"> </span><span class="title">Transforming Data and Matrix Multiplication</span>
 </h3>
 <div class="para" id="sec-Transform-Data-Matrix-Mult-2">As we have seen, we can use vectors to represent any entity that might have multiple components.  This allows us to manipulate values of common components by adding or multiplying them while keeping the components separated in the process.  This use of linear combinations of vectors is useful, but the real desire of the previous scenario is to examine how manipulating one set of values (say, prices of products) affects another set of values (revenue from each company).  Just as we explored functional relationships in algebra and calculus, we also might want to explore functional relationships with objects that have not just one value as an input and one corresponding value as an output, but rather inputs that have many component values and a corresponding output that also has many component values.</div>
 <div class="para" id="sec-Transform-Data-Matrix-Mult-3">Recall that one of our first experiences with functions dealt with simple linear relationships.  For example, Hooke’s Law states that there is a simple linear relationship between force on a stretched or compressed spring and the distance of the associated stretch or compression, <span class="process-math">\(F=kx\text{,}\)</span> where <span class="process-math">\(k\)</span> is a constant of proportionality.  If we use <em class="emphasis">function notation</em> to express that force, <span class="process-math">\(F\text{,}\)</span> is a function of stretch, <span class="process-math">\(x\text{,}\)</span> we indicate the independent variable by placing it in parentheses getting, <span class="process-math">\(F\left(x\right)=kx\text{.}\)</span>
@@ -546,8 +553,8 @@ r_1\\r_2\\r_3\end{bmatrix}
 \end{equation*}
 </div>
 <div class="para">You will likely notice that the result of the way we have chosen to define the multiplication of a matrix and a vector only makes sense if the number of columns of the matrix matches the number of entries (rows of components) of the vector.</div>
-</div></section><section class="section" id="sec-Transformations-Vectors"><h3 class="heading hide-type">
-<span class="type">Section</span><span class="space"> </span><span class="codenumber">1.1.3</span><span class="space"> </span><span class="title">Transformations of Vectors</span>
+</div></section><section class="subsection" id="sec-Transformations-Vectors"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">1.1.3</span><span class="space"> </span><span class="title">Transformations of Vectors</span>
 </h3>
 <div class="para" id="sec-Transformations-Vectors-2">Now that we have defined what it means to multiply a matrix and a vector, we can go back to the concept that motivated it, namely, the desire to move between an input vector and an output vector.  In a way, we are looking to <em class="emphasis">transform</em> one type of vector into another type of vector.  When we think of our example of Hooke’s Law as <em class="emphasis">transforming</em> stretch or compression into force, we note that this happens in our daily lives and we are not often even aware it is there.  Consider a trip to the grocery store.  In the produce aisle, we take zucchini and place them on a scale.  In turn, the scale returns a weight (force) in pounds (if you are in the USA) or mass in kilograms (practically anywhere else in the world).  Inside the scale, there is a spring that is being compressed or stretched.  This value is then <em class="emphasis">transformed</em> into a value of weight or mass using Hooke’s Law.  In fact, it is more likely the case that you are more familiar with a transformation in form of cost instead of weight or mass as most digital scales today allow us to scan the scale’s output barcode registering a cost in our "shop and scan" app.  Below is a video illustrating this process.</div>
 <div class="para" id="sec-Transformations-Vectors-3">-----------INSERT VIDEO HERE--------------</div>
@@ -570,10 +577,10 @@ F\left(x+y\right)=k\left(x+y\right)=kx+ky=F\left(x\right)+F\left(y\right)
 <div class="para">What this says is that <em class="emphasis">vector addition is preserved</em>.  In this case, we can think of the inputs, <span class="process-math">\(x\)</span> and <span class="process-math">\(y\text{,}\)</span> as vectors with only one component.</div>
 </div>
 <div class="para" id="sec-Transformations-Vectors-6">Recall from your Algebra 1 days, a function like <span class="process-math">\(F=kx\)</span> is the most basic of linear functions. Therefore, it should come as no surprise that these two aspects of behavior (preservation of scalar multiplication and vector addition) by this type of function are the defining properties of what we call <em class="emphasis">linear transformations</em>.</div>
-<article class="definition definition-like" id="def-"><h4 class="heading">
-<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.1.1</span><span class="period">.</span>
+<div class="para" id="sec-Transformations-Vectors-7"><article class="definition definition-like" id="def-linear-mapping"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.1.4</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="def--1-1">
+<div class="para logical" id="def-linear-mapping-1-1">
 <div class="para">Suppose <span class="process-math">\(T\)</span> is a mapping between two vector spaces,<span class="process-math">\(V\)</span> and <span class="process-math">\(W\text{,}\)</span> <span class="process-math">\(T: V\rightarrow W\)</span> such that both scalar multiplication and vector addition are preserved.</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -587,7 +594,8 @@ T\left(\mathbf{v}+\mathbf{w}\right)=T\left(\mathbf{v}\right)+T\left(\mathbf{w}\r
 </div>
 <div class="para">where <span class="process-math">\(\mathbf{v}\in V\text{,}\)</span> and <span class="process-math">\(\mathbf{w} \in W\text{,}\)</span> and <span class="process-math">\(\alpha\)</span> is a scalar. Then the mapping <span class="process-math">\(T\)</span> is called <span class="process-math">\(\mathbf{linear}\)</span> or a <span class="process-math">\(\mathbf{linear} \)</span> <span class="process-math">\(\mathbf{transformation}\text{.}\)</span>
 </div>
-</div></article><div class="para logical" id="sec-Transformations-Vectors-8">
+</div></article></div>
+<div class="para logical" id="sec-Transformations-Vectors-8">
 <div class="para">Just as the relationship of Hooke’s Law can be thought of as transforming <em class="emphasis">stretch</em> into <em class="emphasis">force</em>, in our scenario between pricing structures and the revenue generated, we are similarly looking to transform a pricing scheme into the resulting revenue for our three companies.  We can even use function notation to represent this relationship.  If we let the vector <span class="process-math">\(\mathbf{p}=\begin{bmatrix}
 p_1\\p_2\\p_3\\p_4 \end{bmatrix}\text{,}\)</span> we can think of the product of the matrix of orders by the companies and the vector <span class="process-math">\(\mathbf{p}\)</span> as a revenue transformation (or function), <span class="process-math">\(R\text{,}\)</span> given by</div>
 <div class="displaymath process-math">
