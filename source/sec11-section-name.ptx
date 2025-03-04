@@ -494,6 +494,79 @@ we get the total revenue for each company organized as an ordered triple (since 
       </task>
     </activity>
   </p>
+
+  <p>
+    Since we have seen these properties before from our work with real numbers, we can use them with 
+    vectors and scalars so that we can manipulate these combinations of operations.  To this end, we can define 
+    a "world" where objects like vectors and scalars behave in a way that we expect and can use.
+  </p>
+  <p>
+    <definition xml:id="def-vector-space">
+    <title>Vector Space</title>
+      <statement>
+        <p>
+          A <m>\mathbf{vector}</m> <m>\mathbf{space}</m> is a nonempty set <m>V</m> of objects, called
+          <em>vectors</em>, on which are defined two operations, called <em>addition</em> and 
+          <em>scalar multiplication</em> (for real numbers), that satisfy the following axioms.  
+          For any  <m>\mathbf{u}, \mathbf{v}, \mathbf{w} \in V</m> and <m>c, d \in \mathbb{R}</m>:
+          <ol>
+            <li>
+              <p>
+                <m>\mathbf{u}+\mathbf{v} \in V</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\mathbf{u}+\mathbf{v}=\mathbf{v}+\mathbf{u}</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\left(\mathbf{u}+\mathbf{v}\right)+\mathbf{w}=\mathbf{u}+\left(\mathbf{v}+\mathbf{w}\right)</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                There exists a <em>zero vector</em>, denoted <m>\mathbf{0} \in V</m>, such that 
+                <m>\mathbf{u}+\mathbf{0}=\mathbf{u}, \forall \mathbf{u} \in V</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                For each <m>\mathbf{u} \in V</m>, there exists a vector denoted <m>-\mathbf{u} \in V</m> 
+                such that <m>\mathbf{u}+\left(-\mathbf{u}\right)=\mathbf{0}</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                The scalar multiple of <m>\mathbf{u}</m> by <m>c</m>, denoted <m>c\mathbf{u} \in V</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>c\left(\mathbf{u}+\mathbf{v}\right)=c\mathbf{u}+c\mathbf{v}</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\left(c+d\right)\mathbf{u}=c\mathbf{u}+d\mathbf{u}</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>c\left(d\mathbf{u}\right)=\left(cd\right)\mathbf{u}</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>1\mathbf{u}=\mathbf{u}</m>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+  </p>
   </subsection>
 <subsection xml:id="sec-Transform-Data-Matrix-Mult">
   <title>Transforming Data and Matrix Multiplication</title>
