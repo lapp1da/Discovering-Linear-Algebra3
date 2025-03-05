@@ -19,9 +19,9 @@ var ptx_lunr_docs = [
   "body": " This book is an application of research I have conducted on the teaching and learning of linear algebra with my colleagues and friends, the late Dr. Melvin Nyman from Alma College, and Dr. John Berry of the University of Plymouth in the UK. As we conducted research together on students in linear algebra classes, I so valued our stimulating conversations and genuine friendship. I could not have created this text without the insights they shared as we analyzed our data and crafted our journal articles. As Mel was only a few miles away from Central Michigan University, I truly miss my frequent visits to his campus. While Mel is no longer with us, his influence on my thinking and teaching are still an ever present reminder of a great friend and mathematician. While John is still active in working to inspire the mathematically talented youth of the UK, I do miss the opportunity to engage with him for the sake of my own professional development. His ideas always prompted deeper understanding for me and I cherish our work together.  "
 },
 {
-  "id": "sec11-section-name",
+  "id": "sec11-model-moving-worlds",
   "level": "1",
-  "url": "sec11-section-name.html",
+  "url": "sec11-model-moving-worlds.html",
   "type": "Section",
   "number": "1.1",
   "title": "Modeling Data and Moving Between Worlds",
@@ -30,7 +30,7 @@ var ptx_lunr_docs = [
 {
   "id": "def-vector-add",
   "level": "2",
-  "url": "sec11-section-name.html#def-vector-add",
+  "url": "sec11-model-moving-worlds.html#def-vector-add",
   "type": "Definition",
   "number": "1.1.1",
   "title": "",
@@ -39,7 +39,7 @@ var ptx_lunr_docs = [
 {
   "id": "def-scalar-mult",
   "level": "2",
-  "url": "sec11-section-name.html#def-scalar-mult",
+  "url": "sec11-model-moving-worlds.html#def-scalar-mult",
   "type": "Definition",
   "number": "1.1.2",
   "title": "",
@@ -48,7 +48,7 @@ var ptx_lunr_docs = [
 {
   "id": "sec-Linear-Comb-Data-3-1",
   "level": "2",
-  "url": "sec11-section-name.html#sec-Linear-Comb-Data-3-1",
+  "url": "sec11-model-moving-worlds.html#sec-Linear-Comb-Data-3-1",
   "type": "Table",
   "number": "1.1.3",
   "title": "Product Orders",
@@ -57,7 +57,7 @@ var ptx_lunr_docs = [
 {
   "id": "sec-Linear-Comb-Data-4",
   "level": "2",
-  "url": "sec11-section-name.html#sec-Linear-Comb-Data-4",
+  "url": "sec11-model-moving-worlds.html#sec-Linear-Comb-Data-4",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
@@ -66,7 +66,7 @@ var ptx_lunr_docs = [
 {
   "id": "sec-Linear-Comb-Data-5",
   "level": "2",
-  "url": "sec11-section-name.html#sec-Linear-Comb-Data-5",
+  "url": "sec11-model-moving-worlds.html#sec-Linear-Comb-Data-5",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
@@ -75,7 +75,7 @@ var ptx_lunr_docs = [
 {
   "id": "sec-Linear-Comb-Data-8-1",
   "level": "2",
-  "url": "sec11-section-name.html#sec-Linear-Comb-Data-8-1",
+  "url": "sec11-model-moving-worlds.html#sec-Linear-Comb-Data-8-1",
   "type": "Activity",
   "number": "1.1.2",
   "title": "Structure of Vectors.",
@@ -84,7 +84,7 @@ var ptx_lunr_docs = [
 {
   "id": "def-vector-space",
   "level": "2",
-  "url": "sec11-section-name.html#def-vector-space",
+  "url": "sec11-model-moving-worlds.html#def-vector-space",
   "type": "Definition",
   "number": "1.1.4",
   "title": "Vector Space.",
@@ -93,25 +93,25 @@ var ptx_lunr_docs = [
 {
   "id": "def-linear-mapping",
   "level": "2",
-  "url": "sec11-section-name.html#def-linear-mapping",
+  "url": "sec11-model-moving-worlds.html#def-linear-mapping",
   "type": "Definition",
   "number": "1.1.5",
   "title": "",
   "body": "  Suppose is a mapping between two vector spaces, and , such that both scalar multiplication and vector addition are preserved.  where , and , and is a scalar. Then the mapping is called or a  .   "
 },
 {
-  "id": "sec12-section-name",
+  "id": "sec12-global-local-coords",
   "level": "1",
-  "url": "sec12-section-name.html",
+  "url": "sec12-global-local-coords.html",
   "type": "Section",
   "number": "1.2",
   "title": "Global vs Local Coordinates",
   "body": " Global vs Local Coordinates  In this section we will look at how we can describe locations from within a small region around us and within the a larger space where our small world might exist.  "
 },
 {
-  "id": "sec21-section-name",
+  "id": "sec21-gridding-space",
   "level": "1",
-  "url": "sec21-section-name.html",
+  "url": "sec21-gridding-space.html",
   "type": "Section",
   "number": "2.1",
   "title": "Gridding the Space",
