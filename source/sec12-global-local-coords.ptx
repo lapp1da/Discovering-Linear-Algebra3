@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<section xml:id="sec12-section-name" xmlns:xi="http://www.w3.org/2001/XInclude">
+<section xml:id="sec12-global-local-coords" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>Global vs Local Coordinates</title>
 
   <p> In this section we will look at how we can describe locations from within a small 

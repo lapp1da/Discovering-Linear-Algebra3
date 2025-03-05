@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<chapter xml:id="ch-chapter-title" xmlns:xi="http://www.w3.org/2001/XInclude">
+<chapter xml:id="ch1-coord-vectors-linearcomb" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>Coordinates, Vectors, and Linear Combinations</title>
 
   <introduction>
@@ -12,7 +12,7 @@
   </introduction>
 
   <!-- include sections -->
-  <xi:include href="sec11-section-name.ptx" />
-  <xi:include href="sec12-section-name.ptx" />
+  <xi:include href="sec11-model-moving-worlds.ptx" />
+  <xi:include href="sec12-global-local-coords.ptx" />
 
 </chapter>

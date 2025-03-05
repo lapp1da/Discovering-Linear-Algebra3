@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<chapter xml:id="ch2-chapter-title" xmlns:xi="http://www.w3.org/2001/XInclude">
+<chapter xml:id="ch2-linearcomb-span-bases" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>Linear Combinations, Spanning, and Bases</title>
 
   <introduction>
@@ -8,6 +8,6 @@
   </introduction>
 
   <!-- include sections -->
-  <xi:include href="sec21-section-name.ptx" />
+  <xi:include href="sec21-gridding-space.ptx" />
 
 </chapter>

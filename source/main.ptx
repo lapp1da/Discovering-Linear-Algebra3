@@ -12,8 +12,8 @@
     <xi:include href="./frontmatter.ptx" />
 
     <!-- Include chapters -->
-    <xi:include href="./ch1-chapter-title.ptx" />
-    <xi:include href="./ch2-chapter-title.ptx" />
+    <xi:include href="./ch1-coord-vectors-linearcomb.ptx" />
+    <xi:include href="./ch2-linearcomb-span-bases.ptx" />
 
 
     <!-- Include backmatter -->
