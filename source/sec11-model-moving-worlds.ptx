@@ -779,9 +779,7 @@ we get the total revenue for each company organized as an ordered triple (since 
     multiplication and vector addition) by this type of function are the defining properties of what we call 
     <em>linear transformations</em>.
   </p>
-  <p>
-    
-  </p>
+  
   <p>
   <definition xml:id="def-linear-mapping">
     <statement>
