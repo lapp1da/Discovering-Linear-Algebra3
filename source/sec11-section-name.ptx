@@ -780,7 +780,24 @@ we get the total revenue for each company organized as an ordered triple (since 
     <em>linear transformations</em>.
   </p>
   <p>
-  
+  <definition xml:id="def-linear-mapping">
+    <statement>
+      <p>
+        Suppose <m>T</m> is a mapping between two vector spaces,<m>V</m> and <m>W</m>, 
+        <m>T: V\rightarrow W</m> such that both scalar multiplication and vector addition are preserved.
+        <me>
+          T\left(\alpha \mathbf{v}\right)=\alpha T\left(\mathbf{v}\right)
+        </me>
+        
+        <me>
+          T\left(\mathbf{v}+\mathbf{w}\right)=T\left(\mathbf{v}\right)+T\left(\mathbf{w}\right)
+        </me>
+        where <m>\mathbf{v}\in V</m>, and <m>\mathbf{w} \in W</m>, and <m>\alpha</m> is a scalar.  
+        Then the mapping <m>T</m> is called <m>\mathbf{linear}</m> or a 
+        <m>\mathbf{linear} </m> <m>\mathbf{transformation}</m>.
+      </p>
+    </statement>
+  </definition>
   </p>
     <p>
     Just as the relationship of Hooke's Law can be thought of as transforming <em>stretch</em> into <em>force</em>, 
