@@ -779,13 +779,96 @@ we get the total revenue for each company organized as an ordered triple (since 
     multiplication and vector addition) by this type of function are the defining properties of what we call 
     <em>linear transformations</em>.
   </p>
-  
+  <p>
+    <activity>
+      <introduction>
+      <p>
+        In the case of the force and spring stretch, we had a spring constant, <m>k</m>, as our <em>constant of 
+        proportionality</em> where it was a single value that worked for a specific spring.  As we have seen, 
+        we may have relationships where this "constant" is actually dependent on many different values instead 
+        of a single one (i.e. a matrix of values).  Can we still have these two operations (scalar 
+        multiplication and vector addition) work when the thing we are multiplying the vectors by is a matrix?  
+        Suppose we have a matrix transformation given by <m>T\left(\mathbf{x}\right)=
+        \begin{bmatrix}
+        -1 \amp 3 \amp 2\\
+        1 \amp 1 \amp 5\\
+        2 \amp 0 \amp -4
+        \end{bmatrix}\mathbf{x}</m>.  
+        Define this transformation in your CAS and then define 
+        <m>\mathbf{v}=\begin{bmatrix} 1\\3\\-1\end{bmatrix}</m> and 
+        <m>\mathbf{w}=\begin{bmatrix} 2\\0\\-3\end{bmatrix}</m>.
+      </p>
+      </introduction>
+
+      <task>
+      <statement>
+      <p>
+        Compute <m>T\left(\mathbf{v}\right)</m> and <m>T\left(\mathbf{w}\right)</m> and add them.
+      </p>
+      </statement>
+      </task>
+
+      <task>
+      <statement>
+      <p>
+        Compute <m>\mathbf{v}+\mathbf{w}</m> and <m>T\left(\mathbf{v}+\mathbf{w}\right)</m>.  Describe 
+        your observations relative to your responses from part(a).
+      </p>
+      </statement>
+      </task>
+
+      <task>
+        <statement>
+          <p>
+            Compute <m>T\left(4\mathbf{v}\right)</m> and <m>4T\left(\mathbf{v}\right)</m>.  Describe your 
+            observations.
+          </p>
+        </statement>
+      </task>
+
+      <task>
+        <statement>
+          <p>
+          To see if your observations will hold in general for this particular matrix, create two vectors 
+          on your CAS , <m>\mathbf{x}=\begin{bmatrix} x_1\\x_2\\x_3\end{bmatrix}</m> and 
+          <m>\mathbf{y}=\begin{bmatrix} y_1\\y_2\\y_3\end{bmatrix}</m>.  Use your CAS with, <m>c</m>, 
+          representing any real number and find expressions for <m>T\left(\mathbf{x}+\mathbf{y}\right)</m> and 
+          <m>T\left(\mathbf{x}\right)+T\left(\mathbf{y}\right)</m>.  Does your earlier observation hold for any 
+          two vectors in <m>\mathbb{R}^3</m>?  Explain.
+          </p>
+        </statement>
+      </task>
+
+      <task>
+        <statement>
+          <p>
+          Find expressions for <m>T\left(c\cdot \mathbf{x}\right)</m> and 
+          <m>c\cdot T\left(\mathbf{x}\right)</m>.  Does your observation from part (c) hold for all 
+          vectors in <m>\mathbb{R}^3</m>?  Explain.
+          </p>
+        </statement>
+      </task>
+
+      <task>
+        <statement>
+          <p>
+            Given how we defined matrix-vector multiplication out of linear combiinations, come up with an 
+            argument for why all such matrix transformations <em>must</em> be 
+            <m>\mathbf{linear}</m> <m>\mathbf{transformations}</m> preserving both scalar multiplication and vector addition.
+          </p>
+        </statement>
+      </task>
+    </activity>
+  </p>
   <p>
   <definition xml:id="def-linear-mapping">
+    <title>Linear Transformation</title>
+    
     <statement>
       <p>
-        Suppose <m>T</m> is a mapping between two vector spaces,<m>V</m> and <m>W</m>, 
-        <m>T: V\rightarrow W</m> such that both scalar multiplication and vector addition are preserved.
+        Suppose <m>T</m> is a mapping between <m>\mathbb{R}^n</m> and <m>\mathbb{R}^m</m>, 
+        <m>T: \mathbb{R}^n\rightarrow \mathbb{R}^m</m> (<m>n</m> and <m>m</m> need not be distinct) 
+        such that both scalar multiplication and vector addition are preserved.
         <me>
           T\left(\alpha \mathbf{v}\right)=\alpha T\left(\mathbf{v}\right)
         </me>
@@ -793,7 +876,7 @@ we get the total revenue for each company organized as an ordered triple (since 
         <me>
           T\left(\mathbf{v}+\mathbf{w}\right)=T\left(\mathbf{v}\right)+T\left(\mathbf{w}\right)
         </me>
-        where <m>\mathbf{v}\in V</m>, and <m>\mathbf{w} \in W</m>, and <m>\alpha</m> is a scalar.  
+        where <m>\mathbf{v}, \mathbf{w} \in \mathbb{R}^n</m>, and <m>\alpha</m> is a scalar.  
         Then the mapping <m>T</m> is called <m>\mathbf{linear}</m> or a 
         <m>\mathbf{linear} </m> <m>\mathbf{transformation}</m>.
       </p>
