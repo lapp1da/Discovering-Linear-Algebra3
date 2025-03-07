@@ -736,14 +736,18 @@ we get the total revenue for each company organized as an ordered triple (since 
     that motivated it, namely, the desire to move between an input vector and an output vector.  In a way, 
     we are looking to <em>transform</em> one type of vector into another type of vector.  When we think of 
     our example of Hooke's Law as <em>transforming</em> stretch or compression into force, we note that this 
-    happens in our daily lives and we are not often even aware it is there.  Consider a trip to the grocery 
-    store.  In the produce aisle, we take zucchini and place them on a scale.  In turn, the scale returns a 
-    weight (force) in pounds (if you are in the USA) or mass in kilograms (practically anywhere else in the 
-    world).  Inside the scale, there is a spring that is being compressed or stretched.  This value is then 
-    <em>transformed</em> into a value of weight or mass using Hooke's Law.  In fact, it is more likely the 
-    case that you are more familiar with a transformation in form of cost instead of weight or mass 
-    as most digital scales today allow us to scan the scale's output barcode registering a cost in our 
-    "shop and scan" app.  Below is a video illustrating this process.  
+    happens in our daily lives and we are not often even aware it is there.
+    </p>
+
+    <p>
+      Consider a trip to the grocery 
+      store.  In the produce aisle, we take zucchini and place them on a scale.  In turn, the scale returns a 
+      weight (force) in pounds (if you are in the USA) or mass in kilograms (practically anywhere else in the 
+      world).  Inside the scale, there is a spring that is being compressed or stretched.  This value is then 
+      <em>transformed</em> into a value of weight or mass using Hooke's Law.  In fact, it is more likely the 
+      case that you are more familiar with a transformation in form of cost instead of weight or mass 
+      as most digital scales today allow us to scan the scale's output barcode registering a cost in our 
+      "shop and scan" app.  Below is a video illustrating this process.  
   </p>
   <p>
     -----------INSERT VIDEO HERE--------------
@@ -771,7 +775,11 @@ we get the total revenue for each company organized as an ordered triple (since 
       F\left(x+y\right)=k\left(x+y\right)=kx+ky=F\left(x\right)+F\left(y\right)
     </me>
     What this says is that <em>vector addition is preserved</em>.  In this case, we can think of the inputs, 
-    <m>x</m> and <m>y</m>, as vectors with only one component.
+    <m>x</m> and <m>y</m>, as vectors with only one component.  In fact, if you have ever taken a physics class, 
+    you will recall that both force and stretch in Hook'e Law were considered vectors since along a single 
+    line we associate a positive and negative direction for these values to indicate direction of the force 
+    or stretch.  We often represent this relationship as a vector relationship, 
+    <m>\mathbf{F}=k\mathbf{x}</m> or <m>\overset{\rightharpoonup}{F}=k\overset{\rightharpoonup}{x}</m>.
   </p>
   <p>
     Recall from your Algebra 1 days, a function like <m>F=kx</m> is the most basic of linear functions.  
