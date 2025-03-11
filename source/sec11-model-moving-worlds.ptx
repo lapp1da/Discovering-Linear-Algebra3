@@ -839,8 +839,8 @@ we get the total revenue for each company organized as an ordered triple (since 
           <p>
           To see if your observations will hold in general for this particular matrix, create two vectors 
           on your CAS , <m>\mathbf{x}=\begin{bmatrix} x_1\\x_2\\x_3\end{bmatrix}</m> and 
-          <m>\mathbf{y}=\begin{bmatrix} y_1\\y_2\\y_3\end{bmatrix}</m>.  Use your CAS with, <m>c</m>, 
-          representing any real number and find expressions for <m>T\left(\mathbf{x}+\mathbf{y}\right)</m> and 
+          <m>\mathbf{y}=\begin{bmatrix} y_1\\y_2\\y_3\end{bmatrix}</m>.  Using your CAS, find expressions 
+          for <m>T\left(\mathbf{x}+\mathbf{y}\right)</m> and 
           <m>T\left(\mathbf{x}\right)+T\left(\mathbf{y}\right)</m>.  Does your earlier observation hold for any 
           two vectors in <m>\mathbb{R}^3</m>?  Explain.
           </p>
@@ -850,9 +850,9 @@ we get the total revenue for each company organized as an ordered triple (since 
       <task>
         <statement>
           <p>
-          Find expressions for <m>T\left(c\cdot \mathbf{x}\right)</m> and 
-          <m>c\cdot T\left(\mathbf{x}\right)</m>.  Does your observation from part (c) hold for all 
-          vectors in <m>\mathbb{R}^3</m>?  Explain.
+          Using, <m>c</m>, to represent any real number, find expressions for 
+          <m>T\left(c\cdot \mathbf{x}\right)</m> and <m>c\cdot T\left(\mathbf{x}\right)</m>.  Does your 
+          observation from part (c) hold for all vectors in <m>\mathbb{R}^3</m>?  Explain.
           </p>
         </statement>
       </task>
@@ -918,6 +918,57 @@ we get the total revenue for each company organized as an ordered triple (since 
    This is effectively a mapping between vectors in <m>\mathbb{R}^4</m> and vectors in <m>\mathbb{R}^3</m>.  
    We can represent this mapping as <m>R:\mathbb{R}^4 \rightarrow \mathbb{R}^3</m>.
 
+  </p>
+  <activity>
+    <title>Price to Revenue: Linear Transformation?</title>
+    <introduction>
+      <p>
+        In the previous activity, we illustrated how we can show that a matrix transformation between 
+        the same spaces (<m>\mathbb{R}^3</m> to <m>\mathbb{R}^3</m>) is, in fact, a linear transformation.  
+        In this activity, let's take a similar approach to show we can also make the same claim for mappings 
+        between different spaces (<m>\mathbb{R}^4</m> to <m>\mathbb{R}^3</m>).  Here we will use our earlier 
+        example of transforming price scenarios into revenues for our three companies.
+      </p>
+    </introduction>
+    
+    <task>
+      <statement>
+        <p>
+          Consider the transformation 
+          <m>R=T\left(\mathbf{p}\right)=
+              \begin{bmatrix}
+              14\amp 9\amp 34\amp 41\\
+              32\amp 7\amp 12\amp 52\\
+              21\amp 8\amp 5\amp 23
+              \end{bmatrix}
+              \mathbf{p}</m>, 
+            where <m>\mathbf{p}=\begin{bmatrix} p_1\\p_2\\p_3\\p_4\end{bmatrix}</m>.  Find expressions for 
+            <m>T\left(c\cdot \mathbf{p}\right)</m> and <m>c\cdot T\left(\mathbf{p}\right)</m>.  
+            Is scalar multiplication preserved for all vectors in <m>\mathbb{R}^4</m>?  Explain.
+        </p>
+      </statement>
+    </task>
+
+    <task>
+      <statement>
+        <p>
+          To see if preservation of vector addition holds in general for this particular matrix, create 
+          two vectors on your CAS , <m>\mathbf{p}=\begin{bmatrix} p_1\\p_2\\p_3\\p_4\end{bmatrix}</m> and 
+          <m>\mathbf{q}=\begin{bmatrix} q_1\\q_2\\q_3\\q_4\end{bmatrix}</m>.  Using your CAS, 
+          find expressions for <m>T\left(\mathbf{p}+\mathbf{q}\right)</m> and 
+          <m>T\left(\mathbf{p}\right)+T\left(\mathbf{q}\right)</m>.  Is vector addition preserved for any  
+          two vectors in <m>\mathbb{R}^4</m>?  Explain.
+          </p>
+      </statement>
+    </task>
+  </activity>
+  <p>
+    We began this section looking at how we can represent practical data and relationships using matrices 
+    and vectors along with operations allowing us to transform one type of vector into another.  In the next few 
+    sections, we will extend this view to consider geometric representations that have far reaching 
+    applications into areas such as digital file compression and image detection.  Eveytime you access your 
+    phone using facial recognition, you are using linear algebra.  Vectors and matrices play a key role 
+    in your everyday life and you may not even be aware of it!
   </p>
 </subsection>
 </section>
