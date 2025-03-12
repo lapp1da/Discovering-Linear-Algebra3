@@ -133,7 +133,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "2.1",
   "title": "Gridding the Space",
-  "body": " Gridding the Space  In this section we will look at how a space can be described by many different types of of coordinates and coordinate systems.  "
+  "body": " Gridding the Space  In this section we will look at how a space can be described by many different types of of coordinates and coordinate systems. As students, our first introduction to locating a point in the plane, , is by imagining a square grid and expressing the location of a point as a pairing of two coordinates, . As the story goes, the mathematician, Descartes, was watching a fly walking on the ceiling. He wondered how he might describe the position of the fly and decided that he could measure the distance from the corner of the ceiling in one direction and then the distance along a perpendicular direction to uniquely locate the fly. This was the beginning of the Cartesian (or rectangular) coordinate system. However, this is not the only way we could uniquely locate the fly.   Descarte's Fly   "
 },
 {
   "id": "backmatter-2",
