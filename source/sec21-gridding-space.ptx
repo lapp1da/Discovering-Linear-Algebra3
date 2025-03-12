@@ -3,7 +3,19 @@
 <section xml:id="sec21-gridding-space" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>Gridding the Space</title>
 
-  <p> In this section we will look at how a space can be described by many different types of 
-  of coordinates and coordinate systems. </p>
+  <p>
+    In this section we will look at how a space can be described by many different types of 
+    of coordinates and coordinate systems. As students, our first introduction to locating a point in the plane,
+    <m>\mathbb{R}^2</m>, is by imagining a square grid and expressing the location of a point as a pairing of 
+    two coordinates, <m>\left(x,y\right)</m>.  As the story goes, the mathematician, Descartes, was watching a 
+    fly walking on the ceiling.  He wondered how he might describe the position of the fly and decided that he 
+    could measure the distance from the corner of the ceiling in one direction and then the distance along a 
+    perpendicular direction to uniquely locate the fly.  This was the beginning of the Cartesian (or rectangular) 
+    coordinate system.  However, this is not the only way we could uniquely locate the fly.
+  </p>
+
+  <image source="workspaces/Discovering-Linear-Algebra3/images/Descarte-Fly-2-1.png">
+    <shortdescription>Descarte's Fly</shortdescription>
+  </image>
 
 </section>
